@@ -1,5 +1,5 @@
 10 :REM \t\tMULTIPLY.BAS\t\tVersion 04.22.81
-20 CLEAR &0FA0:WIDTH 255:ON ERROR GOTO 510
+20 CLEAR 4000:WIDTH 255:ON ERROR GOTO 510
 30 E$=CHR$(27):E1$=E$+"E":F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 40 X1$=E$+"x1":Y1$=E$+"y1":Y5$=E$+"y5"+Q$:X5$=E$+"x5":J$=E$+"J":
 50 CS$=E$+"H"+E1$+P$+Y$+" 0 The HARD Multiplication Quiz "+Q$+Y$+"# "
@@ -30,9 +30,9 @@
 300 PRINT F$Y$"*?aaaaa"G$Y$"-0"IN$Y$"+="Y5$;
 310 U2=0x11:INPUT "";U2:PRINT X5$;:U1=F1*F2
 320 IF U1=U2 THEN 250
-330 IN$=P$+" NO0x070x07!! "+VAL(U2)+" is 0x070x07NOT correct... Try it again0x070x07! "+Q$
+330 IN$=P$+" NO0x070x07!! "+STR$(U2)+" is 0x070x07NOT correct... Try it again0x070x07! "+Q$
 340 W1=W1+0x12
-350 IF W1>=INT(V1-(V1*bad float0x1D)) THEN 420
+350 IF W1>=INT(V1-(V1*[1D]33333380)) THEN 420
 360 O1=O1+0x12
 370 GOTO 290
 380 RETURN 

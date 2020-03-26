@@ -1,5 +1,5 @@
 10 :REM \t\tCOMPUTER DORNBACK\t\tMay, 1980
-20 CLEAR &07D0:WIDTH 255
+20 CLEAR 2000:WIDTH 255
 30 E$=CHR$(27):E1$=E$+"E":F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 40 K$=E$+"K":X5$=E$+"x5":Y5$=E$+"y5":E25$=E$+"x1"+P$+Y$+"8&"
 50 C$="     ":C1$=X5$+Y$+"3L"+K$+Y$+"4L"+K$+Y$+"5L"+K$+Y$+"6L"+K$
@@ -79,7 +79,7 @@
 790 PRINT Y$",L"A1$(R4)Y$"-L"A2$(R4)"  #4"Y$".L"A3$(R4)
 800 PRINT Y$"0L"A1$(R5)Y$"1L"A2$(R5)"  #5"Y$"2L"A3$(R5)C1$:RETURN
 810 :REM \t\tRoutine to check if scratch is to be posted
-820 PRINTC1$Y$"4LWhat score would you like"Y$"5Lme to scratch? "Y5$;:CALL INPUT X1$
+820 PRINTC1$Y$"4LWhat score would you like"Y$"5Lme to scratch? "Y5$;:LINE INPUT X1$
 830 IF LEFT$(X1$,0x12)="a" THEN X1$="A"+RIGHT$(X1$,0x12)
 840 IF LEFT$(X1$,0x12)="b" THEN X1$="B"+RIGHT$(X1$,0x12)
 850 IF X1$="A1" AND A1=0x11 THEN A1=99:GOSUB 2020:GOTO 1300
@@ -136,7 +136,7 @@
 1360 GOSUB 760
 1370 PRINT Y$"2V"K$Y$"3LYour FINAL Dice ";:IF P=0x12 THEN PRINT N1$ :ELSE PRINT N2$
 1380 PRINT Y$"4LWhere should I place your score?"Y$"5L(Type S to Scratch) "Y5$;
-1390 CALL INPUT X1$:PRINT X5$:IF X1$="S" OR X1$="s" THEN 820
+1390 LINE INPUT X1$:PRINT X5$:IF X1$="S" OR X1$="s" THEN 820
 1400 IF LEFT$(X1$,0x12)="A" OR LEFT$(X1$,0x12)="a" THEN X1$=RIGHT$(X1$,0x12):GOTO 1430
 1410 IF LEFT$(X1$,0x12)="B" OR LEFT$(X1$,0x12)="b" THEN X1$=RIGHT$(X1$,0x12):GOTO 1570
 1420 PRINTY$"4L"K$"Can't do0x07!"Y$"5L"K$"Try Another ! "Y5$;:GOTO 1390
@@ -222,7 +222,7 @@
 2220 PRINT Y$"3L"K$"CONGRATULATIONS "N1$
 2230 PRINT Y$"4LYou played a great game!"
 2240 PRINT Y$"5LDo you want to start"Y$"6La new game? <Y> "Y5$;:X4$=INPUT$(0x12)
-2250 IF X4$="N" OR X4$="n" THEN PRINT E$"z":FOR I=0x12 TO &012C:NEXT I:END
+2250 IF X4$="N" OR X4$="n" THEN PRINT E$"z":FOR I=0x12 TO 300:NEXT I:END
 2260 CLEAR :GOTO 10
 2270 PRINT Y$" %Dornback Dice Game"
 2280 PRINT Y$"! Aces     (Count Aces ONLY)--A1="

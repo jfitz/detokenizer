@@ -1,5 +1,5 @@
 10 :REM \t\tADDITION.BAS\t\tVersion 04.23.81
-20 CLEAR &0FA0:E$=CHR$(27):F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
+20 CLEAR 4000:E$=CHR$(27):F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 30 X1$=E$+"x1":Y1$=E$+"y1":Y5$=E$+"y5"+Q$:X5$=E$+"x5":J$=E$+"J":
 40 CS$=E$+"H"+E$+"E"+P$+Y$+" 3 Addition and Subtraction Quiz "+Q$+Y$+"# "
 50 R=0x11:H=0x11:W=0x11:O1=0x11
@@ -29,7 +29,7 @@
 290 IF S$="-" THEN U1=F1-F2:GOTO 310
 300 U1=F1+F2
 310 IF U1=U2 GOTO 210
-320 IN$=P$+"0x070x070x07 NO!!"+VAL(U2)+" is NOT correct0x070x07... Try it again0x070x07!! "+Q$
+320 IN$=P$+"0x070x070x07 NO!!"+STR$(U2)+" is NOT correct0x070x07... Try it again0x070x07!! "+Q$
 330 IF A=0x11 THEN O1=O1+0x12:A=0x12
 340 GOTO 260
 350 PRINT Y$"10That's good enough to play a game.":RUN"GAMES"

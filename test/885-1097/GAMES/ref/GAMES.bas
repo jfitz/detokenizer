@@ -6,7 +6,7 @@
 60 PRINTY$"'M`"Y$"(M`"Y$")M`"Y$"*M`"E$"G"Y$"';1. Scenic Drive"\n\tY$"(;2. Hangman"Y$");3. Tic Tac Toe"Y$"*;4. Lunar Lander"
 70 PRINTY$"35Your choice? (1 to 4) <END>"E$"y5";:A$=INPUT$(0x12):PRINTX5$;
 80 IFA$=CHR$(13)THENPRINTE$"E":RUN"MENU"
-90 ONFRE(A$)GOTO120,130,140,150
+90 ONVAL(A$)GOTO120,130,140,150
 100 PRINT"0x070x07";:GOTO 70
 110 PRINTE$"E"Y$"+2Loading..."
 120 RUN"SCENECAR

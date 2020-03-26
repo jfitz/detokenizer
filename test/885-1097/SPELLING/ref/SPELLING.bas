@@ -1,5 +1,5 @@
 10 :REM \t\tSPELLING.BAS\tVersion 04.23.81
-20 CLEAR &0FA0:ON ERROR GOTO 340
+20 CLEAR 4000:ON ERROR GOTO 340
 30 E$=CHR$(27):P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 40 X1$=E$+"x1":Y1$=E$+"y1":Y5$=E$+"y5"+Q$:X5$=E$+"x5":J$=E$+"J":
 50 CS$=E$+"H"+E$+"E"+P$+Y$+" 0 Spelling Quiz "+Q$+Y$+"# "
@@ -8,7 +8,7 @@
 80 PRINT "\tshould be spelled.  If you do well enough, you may play a"
 90 PRINT "\tgame.  Otherwise, more work !!!"
 100 PRINT "\t\t\t\tHERE WE GO...":GOSUB 280
-110 R=0x11:FOR Q=0x12 TO &03E8:A1$=""
+110 R=0x11:FOR Q=0x12 TO 1000:A1$=""
 120 READ B$,C$
 130 PRINT CS$Y$",+"B$"."
 140 PRINT Y$"0&What word is spelled wrong in the above sentence? "Y5$;
@@ -31,7 +31,7 @@
 310 IF ASC(A$)>96 AND ASC(A$)<123 THEN A$=CHR$(ASC(A$)-32)
 320 RETURN
 330 :REM \t\tERROR MESSEGES
-340 IF ERR=0x15 THEN STOP 210
+340 IF ERR=0x15 THEN RESUME 210
 350 PRINT "ERROR!!!!0x070x070x070x07   #"ERR" in 0x070x07line #"ERL:STOP
 360 :REM \t\tAdd your own sentences and words.\t\n\t\t\tUse this format.\t\n    DATA "SENTENCE FOLLOWED BY THE WORD THAT US SPELLED WRONG.","WORD"
 370 DATA "THE YELLOW CAT JUMPED OWVER MY FOOT","OVER"

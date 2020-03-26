@@ -1,12 +1,12 @@
 10 :REM \t\tADD.BAS\t\tVersion 04.22.81
-20 CLEAR &0FA0:WIDTH 255:ON ERROR GOTO 520
+20 CLEAR 4000:WIDTH 255:ON ERROR GOTO 520
 30 E$=CHR$(27):E1$=E$+"E":F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 40 X1$=E$+"x1":Y1$=E$+"y1":Y5$=E$+"y5"+Q$:X5$=E$+"x5":J$=E$+"J":
 50 CS$=E$+"H"+E1$+P$+Y$+" 3 Addition and Subtraction Quiz "+Q$+Y$+"# "
 60 PRINT CS$
 70 R=0x11:H=0x11:W=0x11
 80 O1=0x11
-90 D9=&03E8::REM \tD9 IS DIFFICULTY DETERMINATOR
+90 D9=1000::REM \tD9 IS DIFFICULTY DETERMINATOR
 100 V1=20::REM \tV1 is the number of problems
 110 PRINT "\tI (THE COMPUTER) AM GOING TO GIVE YOU SOME MATH PROBLEMS..."
 120 PRINT "\tIF YOU DO WELL ENOUGH ON THEM, YOU'LL GET A REWARD.  IF"
@@ -41,7 +41,7 @@
 410 IF F2<=F1 GOTO 300
 420 U1=F1+F2
 430 IF U1=U2 GOTO 310
-440 IN$=P$+"0x070x070x07 NO!!"+VAL(U2)+" is NOT correct0x070x07... Try it again0x070x07!! "+Q$:\n\tO1=O1+0x12:GOTO 370
+440 IN$=P$+"0x070x070x07 NO!!"+STR$(U2)+" is NOT correct0x070x07... Try it again0x070x07!! "+Q$:\n\tO1=O1+0x12:GOTO 370
 450 PRINT CS$Y$"/0SUPER!  Let's have some fun!":RUN"GAMES"
 460 PRINT X1$P$Y$"80 Hit any key to continue..... ";
 470 PRINT Y5$" ";

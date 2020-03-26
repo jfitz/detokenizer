@@ -1,10 +1,10 @@
 10 :REM \t\tOTHELLO.BAS\tBy: Richard Musgrave \n\t\t\t\t    5101 N. Elmwood \n\t\t\t\t    Kansas City, MO  64119
-20 CLEAR &07D0:WIDTH 255
+20 CLEAR 2000:WIDTH 255
 30 E$=CHR$(27):E1$=E$+"E":P$=E$+"p":Q$=E$+"q":F$=E$+"F":G$=E$+"G"
 40 Y$=E$+"Y":X5$=E$+"x5":Y5$=E$+"y5":K$=E$+"K":L$=STRING$(0x17," ")+"`":
 50 FOR C=0x18 TO 56 STEP 0x18:L1$=Y$+"9"+CHR$(C+32)+"`":L$=L1$+L$:NEXT C
 60 M$="aaaaaab":M$="v"+M$+M$+M$+M$+M$+M$+M$+"aaaaaat"
-70 Z=RND(-SPACE$(&201B)*SPACE$(&201B)):H1$=P$+"    "+Q$:H2$="iiii"
+70 Z=RND(-PEEK(8219)*PEEK(8219)):H1$=P$+"    "+Q$:H2$="iiii"
 80 PRINT E1$E$"x4"X5$;
 90 DIM A(200),A1(100):U=33:V=66:FOR I=17 TO 99:READ A(I):A1(I)=A(I):NEXT I
 100 DATA 0,0,0,0,0,0,0,0,0,0,0,-99,-1,-15,-15,-15,-15,-1,-99,0
@@ -64,7 +64,7 @@
 640 PRINT E1$F$X5$;
 650 PRINT Y$"9 faaa1aasaaa2aasaaa3aasaaa4aasaaa5aasaaa6aasaaa7aasaaa8aac"
 660 FOR I=0x12 TO 0x19
-670 PRINT "`"L$:PRINTY$"9 "RIGHT$(VAL(I),0x12);:IF I=0x19 THEN PRINTL$;:GOTO 690
+670 PRINT "`"L$:PRINTY$"9 "RIGHT$(STR$(I),0x12);:IF I=0x19 THEN PRINTL$;:GOTO 690
 680 PRINT Y$"9!"L$:PRINT Y$"9 "M$:NEXT I
 690 PRINT E$"x1"Y$"8 eaaaaaauaaaaaauaaaaaauaaaaaauaaaaaauaaaaaauaaaaaauaaaaaad"
 700 FOR I=11 TO 88:IF A(I)>0x11 THEN Z=Z:GOSUB 720
@@ -88,7 +88,7 @@
 880 IF S1>S2 THEN PRINT G$Y$"0ayou win"Y$"1\goat droppings....":GOTO 900
 890 FOR I=0x12TO 0x19:PRINT Y$CHR$(I+44)"\COMPUTER WINS !!!!":NEXT I
 900 PRINT Y$"6\PLAY AGAIN(1=YES)"Y5$;:INPUT M:IF M=0x12 GOTO 20
-910 PRINT E$"z":FOR I=0x12 TO &0190:NEXT I:END
+910 PRINT E$"z":FOR I=0x12 TO 400:NEXT I:END
 920 GOSUB 860:PRINT Y$"-\MY PIECE =2"
 930 PRINT Y$".\YOUR PIECE =1"Y$"/\RETURN =0"Y$"0\BLANK =-1"
 940 PRINT Y$"2\ENTER PIECE";:INPUT R:R=INT(R):IF R=0x11 GOSUB 810:GOSUB 860:GOTO430

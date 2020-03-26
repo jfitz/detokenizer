@@ -92,7 +92,7 @@
 920 GOTO 940
 930 PRINT Y$"8 *** QUITTER!! ***        "
 940 PRINT Y$"!*"CHR$(C(0x11));Y$"!-"CHR$(C(0x12));Y$"!0"CHR$(C(0x13));Y$"!3"CHR$(C(0x14))
-950 FOR X=0x12 TO &01F4:NEXT X
+950 FOR X=0x12 TO 500:NEXT X
 960 PRINT Y$"8 DO YOU WISH TO PLAY AGAIN? <Y>";:AG$=INPUT$(0x12)
 970 IF AG$<>"N" AND AG$<>"n" THEN PRINT E$+"E";Y$"  ":GOTO 170
 980 PRINT Y$"  ";G$;Q$;E$+"E";E$+"y1";E$+"y5"
@@ -119,4 +119,4 @@
 1190 PRINT "\tposition, but not necessarily the first one.
 1200 PRINT "
 1210 PRINT "\tGood luck!   Hit RETURN to continue.";
-1220 CALL INPUT A$:PRINT E$"E";:RETURN
+1220 LINE INPUT A$:PRINT E$"E";:RETURN

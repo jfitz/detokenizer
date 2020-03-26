@@ -6,7 +6,7 @@
 60 :REM            CLAREMONT HIGH SCHOOL
 70 :REM 
 80 :REM \t\tModifications by H.U.G.
-90 CLEAR &1388:WIDTH 255:ON ERROR GOTO 300
+90 CLEAR 5000:WIDTH 255:ON ERROR GOTO 300
 100 E$=CHR$(27):C$=E$+"E":Y$=E$+"Y":P$=E$+"p":Q$=E$+"q"
 110 Y5$=E$+"y5":X5$=E$+"x5":Y4$=E$+"y4":X4$=E$+"x4"
 120 D$(0x13)=E$+"B":D$(0x15)=E$+"D":D$(0x17)=E$+"C":D$(0x19)=E$+"A"
@@ -21,7 +21,7 @@
 210 PRINT "to return to the main menu without writing, type 'Q'."
 220 PRINT Y$") DOODLE will write you doodles into a data file THE WAY YOU WROTE"
 230 PRINT "THEM so you can watch the computer doodle the same way you did!"
-240 PRINT Y5$:CALL INPUT "Name for data file: ";F$
+240 PRINT Y5$:LINE INPUT "Name for data file: ";F$
 250 IF F$="" THEN F$="F1111111.111"
 260 OPEN "O",0x12,F$
 270 PRINT Y$"20[Hit any character to start]"Y5$;:A$=INPUT$(0x12)
@@ -31,10 +31,10 @@
 310 IF (A$="E" OR A$="e") THEN 320 :ELSE 340
 320 PRINT #0x12,Y4$Y5$Q$
 330 PRINT Y4$X5$Q$C$Y$"+<* End of session *";:RUN "MENU"
-340 IF A$="Q" OR A$="q" THEN CLOSE:VTAB F$:GOTO 330
-350 IF A$="." THEN RESUME S$,R$:PRINT R$;:PRINT #0x12,R$;:GOTO 300
+340 IF A$="Q" OR A$="q" THEN CLOSE:KILL F$:GOTO 330
+350 IF A$="." THEN SWAP S$,R$:PRINT R$;:PRINT #0x12,R$;:GOTO 300
 360 IF A$="C" OR A$="c" THEN 280
 370 IF A$="5" THEN 400
-380 D=FRE(A$):IF J=0x12 THEN PRINT D$(D);:PRINT #0x12,D$(D);:GOTO 300
+380 D=VAL(A$):IF J=0x12 THEN PRINT D$(D);:PRINT #0x12,D$(D);:GOTO 300
 390 PRINT " "D$(0x15)D$(D);:PRINT #0x12," "D$(0x15)D$(D);:GOTO 300
-400 RESUME J,K:GOTO 300
+400 SWAP J,K:GOTO 300

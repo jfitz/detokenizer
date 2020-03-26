@@ -1,5 +1,5 @@
 10 :REM \t\tCORRECT.BAS\t\tVersion 04.23.81
-20 CLEAR &0FA0:WIDTH 255:ON ERROR GOTO 400
+20 CLEAR 4000:WIDTH 255:ON ERROR GOTO 400
 30 E$=CHR$(27):E1$=E$+"E":F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 40 X1$=E$+"x1":Y1$=E$+"y1":Y5$=E$+"y5"+Q$:X5$=E$+"x5":J$=E$+"J":
 50 CS$=E$+"H"+E1$+P$+Y$+" 0 Correct Word Usage "+Q$+Y$+"# "
@@ -37,7 +37,7 @@
 370 IF ASC(A$)>96 AND ASC(A$)<123 THEN A$=CHR$(ASC(A$)-32)
 380 RETURN
 390 :REM \t\tERROR MESSEGES
-400 IF ERR=0x15 THEN STOP 240
+400 IF ERR=0x15 THEN RESUME 240
 410 PRINT "ERROR!!!!0x070x070x070x07   #"ERR" in 0x070x07line #"ERL:STOP
 420 DATA "The computer is to smart for me!","TOO" 
 430 DATA "If I get a turtle, then I will have two pets.","OK" 

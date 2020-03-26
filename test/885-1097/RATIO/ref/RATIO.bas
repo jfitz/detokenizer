@@ -1,5 +1,5 @@
 10 :REM \t\tRATIO.BAS\t\tVersion 04.23.81
-20 CLEAR &0FA0:E$=CHR$(27):P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
+20 CLEAR 4000:E$=CHR$(27):P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 30 X1$=E$+"x1":Y1$=E$+"y1":Y5$=E$+"y5"+Q$:X5$=E$+"x5":J$=E$+"J":
 40 CS$=E$+"H"+E$+"E"+P$+Y$+" 9 Ratio Quiz "+Q$+Y$+"# "
 50 R=0x11:W=0x11:V1=10
@@ -32,7 +32,7 @@
 320 DATA "CANTALOPES"
 330 R=R+0x12:I1$="That is correct.":I2$="":I3$="":GOTO 210
 340 W=W+0x12:I1$=P$+" 0x070x07That is NOT 0x070x07correct. "+Q$
-350 I2$="IF "+VAL(J)+" "+A1$+" COST "+VAL(K)+" DOLLARS, THEN "\n\t+VAL(L)+" "+A1$
-360 I3$="WILL COST "+VAL((L/J)*K)+" DOLLARS.":GOTO 210
+350 I2$="IF "+STR$(J)+" "+A1$+" COST "+STR$(K)+" DOLLARS, THEN "\n\t+STR$(L)+" "+A1$
+360 I3$="WILL COST "+STR$((L/J)*K)+" DOLLARS.":GOTO 210
 370 PRINT X1$P$Y$"80 Hit any key to continue..... ";
 380 PRINT Y5$;:A$=INPUT$(0x12):PRINT X5$Y1$;:RETURN

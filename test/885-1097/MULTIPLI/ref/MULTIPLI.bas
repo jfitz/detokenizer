@@ -1,5 +1,5 @@
 10 :REM \t\tMULTIPLI.BAS\t\tVersion 04.23.81
-20 CLEAR &0FA0:E$=CHR$(27):F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
+20 CLEAR 4000:E$=CHR$(27):F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 30 X1$=E$+"x1":Y1$=E$+"y1":Y5$=E$+"y5"+Q$:X5$=E$+"x5":J$=E$+"J":
 40 CS$=E$+"H"+E$+"E"+P$+Y$+" 0 Math Quiz "+Q$+Y$+"# "
 50 R=0x11:H=0x11:W=0x11
@@ -27,7 +27,7 @@
 270 U2=0x11:INPUT "";U2:PRINT X5$;
 280 U1=F1*F2
 290 IF U1=U2 GOTO 230
-300 IN$=P$+" NO!0x070x07"+VAL(U2)+" is not correct0x070x070x07... Try it again0x070x07!! "+Q$
+300 IN$=P$+" NO!0x070x07"+STR$(U2)+" is not correct0x070x070x07... Try it again0x070x07!! "+Q$
 310 IF A=0x11 THEN O1=O1+0x12:A=0x12
 320 GOTO 260
 330 PRINT CS$Y$"-0Pretty good... Let's play some games!!":RUN"GAMES"

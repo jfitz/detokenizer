@@ -11,7 +11,7 @@
 110 :REM Set variables
 120 E$=CHR$(27):F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y":D$=CHR$(95)
 130 :REM Set up screen
-140 PRINTE$+"x5":OX=RND(-SPACE$(&201B))
+140 PRINTE$+"x5":OX=RND(-PEEK(8219))
 150 PRINTE$+"E"Y$" 8***WINNING***"
 160 PRINTY$;CHR$(34);" *PLAYER:";Y$"- *COMPUTER:"
 170 PRINTY$"#G# # # # # # # #"
@@ -19,7 +19,7 @@
 190 PRINTY$"'G#  4=Scissors #"Y$"(G# # # # # # # #"
 200 PRINTY$"-B"F$"^^^^^^^^^^^^^^^^^^^^^^^^^"Y$".B`"Y$".Z`"
 210 PRINTY$"/B^^^^^^^^^^^^^^^^^^^^^^^^^"G$
-220 PRINTY$".C  Hit <ESC> to quit...";:FORX=0x12TO&01F4:NEXTX
+220 PRINTY$".C  Hit <ESC> to quit...";:FORX=0x12TO500:NEXTX
 230 :REM 
 240 :REM \t  Start playing
 250 :REM Update score and erase pictures
@@ -29,7 +29,7 @@
 290 :REM Computer gets random guess
 300 CG=INT(RND(0x12)*0x17)+0x12:IFCG=0x16THENCG=0x12:ELSEIFCG=0x17THENCG=0x13
 310 PRINTY$".C      I'm ready...    ";:OX=OL:OL=G
-320 I$=INPUT$(0x12):IFASC(I$)=27THEN940:ELSEG=FRE(I$):IFG<0x12ORG>0x15THEN320
+320 I$=INPUT$(0x12):IFASC(I$)=27THEN940:ELSEG=VAL(I$):IFG<0x12ORG>0x15THEN320
 330 :REM Paint player's guess
 340 PRINT Y$"$ ";:IF OX=0x12 AND OL=0x12 AND G=0x12 THEN CG=0x15
 350 ON G GOSUB 680,740,810,860
@@ -58,7 +58,7 @@
 580 GOTO600
 590 GM$=" Rock beats scissors. ":IFG=0x14THENWF=0x12
 600 PRINTY$".C";GM$
-610 FORX=0x12TO&0320:NEXTX
+610 FORX=0x12TO800:NEXTX
 620 :REM Add point to winners score
 630 IFWF=0x13THEN260:ELSEIFWF=0x12THENPP=PP+0x12:ELSECP=CP+0x12
 640 GOTO260
@@ -94,6 +94,6 @@
 940 IFPP=CPTHENGR$="   It's a tie game!!  "
 950 IFPP<CPTHENGR$="    I win the game!!  "
 960 IFPP>CPTHENGR$="   You win the game!! "
-970 PRINTY$".C";GR$:FORX=0x12TO&03E8:NEXTX
+970 PRINTY$".C";GR$:FORX=0x12TO1000:NEXTX
 980 PRINTE$+"E"+E$+"y5"
 990 END
