@@ -4,8 +4,8 @@ Dump tokenized MBASIC-80 program
 package main
 
 import (
-	"bytes"
-	"encoding/binary"
+	//  "bytes"
+	//	"encoding/binary"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -63,17 +63,19 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 			count += 2
 		}
 
-		// 0x1D - 4-byte float
-		if b == 0x1D {
-			var v float32
-			bs := data[count+1 : count+4]
-			buf := bytes.NewReader(bs)
-			err := binary.Read(buf, binary.LittleEndian, &v)
-			if err == nil {
-				fmt.Print(v)
-			} else {
-				fmt.Print("bad float")
-			}
+		// 0x1D and 0x1F - 4-byte float
+		if b == 0x1D || b == 0x1F {
+			bs := data[count+1 : count+5]
+			fmt.Printf("[%02X]", b)
+			fmt.Printf("%02X", bs)
+			// var v float32
+			// buf := bytes.NewReader(bs)
+			// err := binary.Read(buf, binary.LittleEndian, &v)
+			// if err == nil {
+			// 	fmt.Printf("%f", v)
+			// } else {
+			// 	fmt.Print("bad float")
+			// }
 
 			count += 4
 		}
@@ -130,7 +132,7 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 				handled = true
 			}
 
-			if b == 0x0E || b == 0x0F || b == 0x0C || b == 0x1C {
+			if b == 0x0E || b == 0x0F || b == 0x0C || b == 0x1C || b == 0x1D || b == 0x1F {
 				// do nothing (already handled above)
 				handled = true
 			}

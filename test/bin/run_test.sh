@@ -21,7 +21,7 @@ echo run finished
 
 # compare results
 echo Comparing bas...
-diff "$TESTBED/$TESTNAME/$TESTNAME.bas" "$TESTROOT/$TESTGROUP/$TESTNAME/ref/$TESTNAME.bas"
+diff "$TESTROOT/$TESTGROUP/$TESTNAME/ref/$TESTNAME.bas" "$TESTBED/$TESTNAME/$TESTNAME.bas"
 ((ECODE+=$?))
 
 if [ $ECODE -ne 0 ]
@@ -35,7 +35,7 @@ echo run finished
 
 # compare results
 echo Comparing hex...
-diff "$TESTBED/$TESTNAME/$TESTNAME.hex" "$TESTROOT/$TESTGROUP/$TESTNAME/ref/$TESTNAME.hex"
+diff "$TESTROOT/$TESTGROUP/$TESTNAME/ref/$TESTNAME.hex" "$TESTBED/$TESTNAME/$TESTNAME.hex"
 ((ECODE+=$?))
 
 if [ $ECODE -ne 0 ]
