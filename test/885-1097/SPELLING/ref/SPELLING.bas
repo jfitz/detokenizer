@@ -16,14 +16,14 @@
 160 IF A$=CHR$(127) OR A$=CHR$(8) THEN A1$="":\n\tPRINT Y$"0&"J$P$Y$"2C Try again! "Q$:GOTO 140
 170 PRINT A$J$;:A1$=A1$+A$:GOTO 150
 180 IF A1$=C$ THEN R=R+1:GOTO 200
-190 PRINT P$Y$"2C Wrong-10-10-10 "Q$:GOSUB 280
+190 PRINT P$Y$"2C Wrong\a\a\a "Q$:GOSUB 280
 200 NEXT Q
 210 P=INT(100*R/(Q-1))
 220 IF P>70 GOTO 260
-230 PRINT CS$Y$"#(I'm very sorry-10-10-10, but you have only gotten"P"per cent correct."
+230 PRINT CS$Y$"#(I'm very sorry\a\a\a, but you have only gotten"P"per cent correct."
 240 PRINT "\tYou need to get 70 percent or more to play a game.  Let's try"
-250 PRINT "\tit again, OK!-10-10":GOSUB 280:GOTO 10
-260 PRINT CS$Y$"#0HURRY!-10-10"Y$"(0You have gotten"P"per cent correct."
+250 PRINT "\tit again, OK!\a\a":GOSUB 280:GOTO 10
+260 PRINT CS$Y$"#0HURRY!\a\a"Y$"(0You have gotten"P"per cent correct."
 270 PRINT Y$"*0That is good enough to play a game or two!!!":GOSUB 280:RUN"GAMES"
 280 PRINT X1$P$Y$"80 Hit any key to continue..... ";
 290 PRINT Y5$" ";
@@ -32,7 +32,7 @@
 320 RETURN
 330 :REM \t\tERROR MESSEGES
 340 IF ERR=4 THEN RESUME 210
-350 PRINT "ERROR!!!!-10-10-10-10   #"ERR" in -10-10line #"ERL:STOP
+350 PRINT "ERROR!!!!\a\a\a\a   #"ERR" in \a\aline #"ERL:STOP
 360 :REM \t\tAdd your own sentences and words.\t\n\t\t\tUse this format.\t\n    DATA "SENTENCE FOLLOWED BY THE WORD THAT US SPELLED WRONG.","WORD"
 370 DATA "THE YELLOW CAT JUMPED OWVER MY FOOT","OVER"
 380 DATA "I WISH THAT I DIDN'T HAVE TO GO HOM","HOME"

@@ -29,7 +29,7 @@
 290 IF S$="-" THEN U1=F1-F2:GOTO 310
 300 U1=F1+F2
 310 IF U1=U2 GOTO 210
-320 IN$=P$+"-10-10-10 NO!!"+STR$(U2)+" is NOT correct-10-10... Try it again-10-10!! "+Q$
+320 IN$=P$+"\a\a\a NO!!"+STR$(U2)+" is NOT correct\a\a... Try it again\a\a!! "+Q$
 330 IF A=0 THEN O1=O1+1:A=1
 340 GOTO 260
 350 PRINT Y$"10That's good enough to play a game.":RUN"GAMES"

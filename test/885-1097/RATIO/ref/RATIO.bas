@@ -31,7 +31,7 @@
 310 DATA "RUBBER DUCKIES","CHOCOLATE MICE","HOCKEY PUCKS","MONKIES"
 320 DATA "CANTALOPES"
 330 R=R+1:I1$="That is correct.":I2$="":I3$="":GOTO 210
-340 W=W+1:I1$=P$+" -10-10That is NOT -10-10correct. "+Q$
+340 W=W+1:I1$=P$+" \a\aThat is NOT \a\acorrect. "+Q$
 350 I2$="IF "+STR$(J)+" "+A1$+" COST "+STR$(K)+" DOLLARS, THEN "\n\t+STR$(L)+" "+A1$
 360 I3$="WILL COST "+STR$((L/J)*K)+" DOLLARS.":GOTO 210
 370 PRINT X1$P$Y$"80 Hit any key to continue..... ";

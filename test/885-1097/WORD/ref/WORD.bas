@@ -22,7 +22,7 @@
 220 GOTO 100
 230 PRINT"OK, Smarty what is your guess? ";
 240 D$="":FOR I=1 TO 4:GOSUB 360:PRINT A$;:D$=D$+A$:NEXT I:PRINT
-250 IF D$<>B$ THEN PRINT "\tNice try, but you are wrong-10-10-10-10!":GOTO 100
+250 IF D$<>B$ THEN PRINT "\tNice try, but you are wrong\a\a\a\a!":GOTO 100
 260 PRINT "\tGood work!  You guessed my word in only"V"tries!!!"
 270 PRINT "\tDo you want to play again? (Y or N) <Y> ";:GOSUB 360
 280 IF A$<>"N" THEN 20
@@ -36,4 +36,4 @@
 360 PRINT Y5$;:A$=INPUT$(1):PRINT X5$;
 370 IF ASC(A$)>96 AND ASC(A$)<123 THEN A$=CHR$(ASC(A$)-32)
 380 RETURN
-390 PRINT "ERROR!!!!-10-10-10-10   #"ERR" in -10-10line #"ERL:STOP
+390 PRINT "ERROR!!!!\a\a\a\a   #"ERR" in \a\aline #"ERL:STOP

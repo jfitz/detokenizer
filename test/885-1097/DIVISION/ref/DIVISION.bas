@@ -26,7 +26,7 @@
 260 PRINT Y$"'(That gives you a score of"INT(100*R/V1)"percent..."
 270 GOSUB 510
 280 IF 100*R/V1>75 GOTO PRINT CS$Y$"&0SUPER!! Let's have some FUN!":\n\tRUN"GAMES"
-290 PRINT Y$"-0That's no-10t good enough... So let's practice some more..."
+290 PRINT Y$"-0That's no\at good enough... So let's practice some more..."
 300 GOSUB 510:GOTO 50
 310 U1=F1-F2:GOTO 450
 320 IN$="YES, That's correct... Next problem!!!":A=0:H=H+1:RETURN
@@ -43,7 +43,7 @@
 430 U2=0:INPUT "";U2:PRINT X5$;
 440 U1=F1/F2
 450 IF U1=U2 GOTO 320
-460 IN$=P$+" -10NO!"+STR$(U2)+" -10-10is not correct-10-10... Try it again-10-10!! "+Q$
+460 IN$=P$+" \aNO!"+STR$(U2)+" \a\ais not correct\a\a... Try it again\a\a!! "+Q$
 470 IF A=0 THEN O1=O1+1:A=1
 480 GOTO 410
 490 J1=ASC(Z$)

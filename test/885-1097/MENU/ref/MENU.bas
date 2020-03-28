@@ -16,14 +16,14 @@
 160 IF A$=CHR$(13) THEN PRINT E1$Y1$"You are in HDOS"Y5$;:SYSTEM
 170 IF A$>"`" AND A$<"{" THEN A$=CHR$(ASC(A$)-32)
 180 IF A$>CHR$(64) AND A$<CHR$(65+I1) THEN 200
-190 PRINT "-10-10-10-10-10";:GOTO 150
+190 PRINT "\a\a\a\a\a";:GOTO 150
 200 FL$=FL$(ASC(A$)-64):GOTO 210
 210 PRINT E1$Y$"+2Loading......."FL$Y1$Y5$;:IN=INSTR(FL$," ")
 220 FL$=LEFT$(FL$,IN-1)
 230 IF LEN(FL$)>8 THEN FL$=LEFT$(FL$,8)
 240 RUN FL$
 250 IF ERR=4 AND ERL=70 THEN I1=I-1:I=200:NEXT I:RESUME 80
-260 PRINT P$Y$"50 Error #"ERR" in line #-10-10-10-10-10"ERL" "Q$:STOP
+260 PRINT P$Y$"50 Error #"ERR" in line #\a\a\a\a\a"ERL" "Q$:STOP
 270 DATA "Spelling Quiz","Addition & Subtraction","Multiplication Tables",\n\t"Division Tables"
 280 DATA "Number Guessing","Correct Word Usage"
 290 DATA "Word Guessing","Ratio Problems","ADD & SUBTRACT Multiple-Digit"

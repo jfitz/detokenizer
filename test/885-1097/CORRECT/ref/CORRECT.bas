@@ -15,15 +15,15 @@
 150 PRINT E$"H"CS$:PRINT Y$",+"B$
 160 PRINT Y$"00What is wrong? <OK>";
 170 GOSUB 360:IF A$=CHR$(13) THEN 200
-180 IF A$=CHR$(127) OR A$=CHR$(8) THEN A1$="":\n\tPRINT Y$"0&"J$P$Y$"2C Try again!-10 "Q$:GOTO 160
+180 IF A$=CHR$(127) OR A$=CHR$(8) THEN A1$="":\n\tPRINT Y$"0&"J$P$Y$"2C Try again!\a "Q$:GOTO 160
 190 PRINT A$J$;:A1$=A1$+A$:GOTO 170
 200 IF A1$="" THEN A1$="OK"
 210 IF A1$=C$ THEN R=R+1:GOTO 230
-220 PRINT "\t"P$" Wron-10-10-10g ":GOSUB 340
+220 PRINT "\t"P$" Wron\a\a\ag ":GOSUB 340
 230 NEXT Q
 240 PRINT CS$
 250 TM=INT((100*R)/(Q-1)):IF TM>K0 THEN GOTO 300
-260 PRINT "\tSORRY-10-10... But you only received a score of"TM"per"
+260 PRINT "\tSORRY\a\a... But you only received a score of"TM"per"
 270 PRINT "\tcent.  Please go ask mom or dad to give you a hand, and try"
 280 PRINT "\tthis quiz again."
 290 GOSUB 340:R=0:GOTO 80
@@ -38,7 +38,7 @@
 380 RETURN
 390 :REM \t\tERROR MESSEGES
 400 IF ERR=4 THEN RESUME 240
-410 PRINT "ERROR!!!!-10-10-10-10   #"ERR" in -10-10line #"ERL:STOP
+410 PRINT "ERROR!!!!\a\a\a\a   #"ERR" in \a\aline #"ERL:STOP
 420 DATA "The computer is to smart for me!","TOO" 
 430 DATA "If I get a turtle, then I will have two pets.","OK" 
 440 DATA "I can hardly wait too go to the pet store!","TO" 

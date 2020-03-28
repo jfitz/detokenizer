@@ -70,7 +70,7 @@
 700 T=T+1:IF T>2 THEN T=1:S(T)=S(T)+1::ELSE S(T)=S(T)+1
 710 T=T+1:IF T>2 THEN T=1
 720 MID$(P$(TY(T)),TX(T),1)=" "
-730 PRINT Y$CHR$(TY(T)+32)CHR$(TX(T)+31)" -10";:\n\tTX(T)=OX(T):TY(T)=OY(T):TD(T)=OD(T)
+730 PRINT Y$CHR$(TY(T)+32)CHR$(TX(T)+31)" \a";:\n\tTX(T)=OX(T):TY(T)=OY(T):TD(T)=OD(T)
 740 PRINT Y$CHR$(TY(T)+32)CHR$(TX(T)+31)T$(TD(T));
 750 PRINT Y$" ("S(1)Y$" j"S(2);:GOTO 250
 760 DATA "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"

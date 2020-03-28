@@ -27,7 +27,7 @@
 270 U2=0:INPUT "";U2:PRINT X5$;
 280 U1=F1*F2
 290 IF U1=U2 GOTO 230
-300 IN$=P$+" NO!-10-10"+STR$(U2)+" is not correct-10-10-10... Try it again-10-10!! "+Q$
+300 IN$=P$+" NO!\a\a"+STR$(U2)+" is not correct\a\a\a... Try it again\a\a!! "+Q$
 310 IF A=0 THEN O1=O1+1:A=1
 320 GOTO 260
 330 PRINT CS$Y$"-0Pretty good... Let's play some games!!":RUN"GAMES"

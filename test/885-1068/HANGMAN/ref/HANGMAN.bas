@@ -11,7 +11,7 @@
 110 PRINT Y$"* sharp; otherwise . . . . . it's been good to know you!"
 120 PRINT Y$"-#There are three skill levels of play, with `1' being easiest."
 130 PRINT Y$"/ You may change the level after each game. <Hit RETURN>";:N$=INPUT$(1)
-140 PRINT X1$E1$Y$"8(-10What skill level do you want? (1,2, or 3) "Y5$;
+140 PRINT X1$E1$Y$"8(\aWhat skill level do you want? (1,2, or 3) "Y5$;
 150 S$=INPUT$(1):IF VAL(S$)<1 OR VAL(S$)>3 THEN 140
 160 PRINT X1$E1$X5$;:GOSUB 450:C=2:T=0:W=0:D=0:L$=""
 170 RESTORE:FOR X=1 TO INT(50*RND(1))+1:READ O1$,O2$,O3$:IF O1$="000" THEN 170
@@ -23,10 +23,10 @@
 230 IF C=0 THEN PRINT Y$"0"CHR$(96+W)L$;
 240 PRINT G$;:C=0:IF T=S THEN 410
 250 IF D=1 THEN RETURN 
-260 PRINT Y$"84"P$" Guess a letter-10 - "Q$" "Y5$;:L$=INPUT$(1):PRINT X5$L$
+260 PRINT Y$"84"P$" Guess a letter\a - "Q$" "Y5$;:L$=INPUT$(1):PRINT X5$L$
 270 IF (ASC(L$)<65 OR ASC(L$)>90) AND (ASC(L$)<97 OR ASC(L$)>122) THEN 260
 280 IF ASC(L$)>90 THEN L$=CHR$(ASC(L$)-32)
-290 PRINT E$"l";:FOR X=1 TO S:IF L$=A1$(X) THEN PRINT "-10 ":GOTO 260
+290 PRINT E$"l";:FOR X=1 TO S:IF L$=A1$(X) THEN PRINT "\a ":GOTO 260
 300 IF L$=A$(X) THEN A1$(X)=A$(X):C=1:T=T+1
 310 NEXT X:IF C=1 THEN 220
 320 W=W+1:ON W GOTO 540,550,560,570,580,590
@@ -34,14 +34,14 @@
 340 PRINT F$Y$"%Fww r"Y$"%VTHE GOVERNOR HAS NOT"Y$"&VSENT YOUR PARDON!"
 350 FOR X=1 TO 19:PRINT Y$"2"CHR$(60+X)" ";:NEXT X:PRINT " "
 360 PRINT G$Y5$Y$"8"Q1$
-370 PRINT "To play again choose a skill level-10 (1,2 or 3) <END> ";:N$=INPUT$(1)
+370 PRINT "To play again choose a skill level\a (1,2 or 3) <END> ";:N$=INPUT$(1)
 380 PRINT X5$E$"y1"E$"y3"Y$"  "E1$;
 390 IF N$="1" OR N$="2" OR N$="3" THEN S$=N$:GOTO 160
 400 PRINT Y$"  "Y5$:END
 410 PRINT F$Y$Q1$"Fx "Y$"#Gx":IF W=0 THEN 440
 420 PRINT Y$"&Fed";:IF W<5 THEN 440
 430 PRINT Y$"1<}"STRING$(20,"p")"|"
-440 PRINT Y$"%NYOUR-10 LAWYER USED THE-10 RIGHT"Y$"&OLETTERS AND GOT YOU OFF!":GOTO360
+440 PRINT Y$"%NYOUR\a LAWYER USED THE\a RIGHT"Y$"&OLETTERS AND GOT YOU OFF!":GOTO360
 450 X$=Y$+"9%}i|":V$="x x":W$="y y"
 460 PRINT E$"x3"Y$"      "F$STRING$(36,"{"):PRINT X$"   "V$Y$"!F"U$"r"
 470 PRINT X$"  "V$:PRINT X$" "V$:PRINT X$V$:PRINT X$" x":PRINT X$"x"

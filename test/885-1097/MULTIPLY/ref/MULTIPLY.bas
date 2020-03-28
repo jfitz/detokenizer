@@ -20,7 +20,7 @@
 200 PRINT "\tThat gives you a score of"INT(100*R/V1)"percent..."
 210 GOSUB 450
 220 IF 100*R/V1>75 GOTO 390
-230 PRINT Y$"-0-10-10That's not good enough... So let's practice some more..."
+230 PRINT Y$"-0\a\aThat's not good enough... So let's practice some more..."
 240 GOSUB 450:GOTO 60
 250 IN$="YES, that's correct... Next problem!!!":H=H+1:GOTO 380
 260 F1=INT(D9*10*RND(4))
@@ -30,7 +30,7 @@
 300 PRINT F$Y$"*?aaaaa"G$Y$"-0"IN$Y$"+="Y5$;
 310 U2=0:INPUT "";U2:PRINT X5$;:U1=F1*F2
 320 IF U1=U2 THEN 250
-330 IN$=P$+" NO-10-10!! "+STR$(U2)+" is -10-10NOT correct... Try it again-10-10! "+Q$
+330 IN$=P$+" NO\a\a!! "+STR$(U2)+" is \a\aNOT correct... Try it again\a\a! "+Q$
 340 W1=W1+1
 350 IF W1>=INT(V1-(V1*[1D]33333380)) THEN 420
 360 O1=O1+1
@@ -49,4 +49,4 @@
 490 RETURN
 500 :REM \t\tERROR MESSEGES
 510 :REM 
-520 PRINT Y$"70ERROR!!!!-10-10-10-10   #"ERR" in -10-10line #"ERL:STOP
+520 PRINT Y$"70ERROR!!!!\a\a\a\a   #"ERR" in \a\aline #"ERL:STOP

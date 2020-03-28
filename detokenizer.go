@@ -133,6 +133,20 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 		}
 
 		// 0x01 to 0x31 - certain tokens or a 1-byte integer
+		if b == 0x07 {
+			// BEL
+			fmt.Print("\\a")
+
+			handled = true
+		}
+
+		if b == 0x08 {
+			// BS
+			fmt.Print("\\b")
+
+			handled = true
+		}
+
 		if b == 0x09 {
 			// TAB
 			fmt.Print("\\t")
@@ -155,9 +169,14 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 		}
 
 		if !handled {
-			// 1-byte numeric as decimal
-			n := b16 - 0x11
-			fmt.Printf("%d", n)
+			if b16 >= 0x11 {
+				// 1-byte numeric as decimal
+				n := b16 - 0x11
+				fmt.Printf("%d", n)
+			} else {
+				// 1-byte ASCII control character
+				fmt.Printf("0x%02X", b16)
+			}
 		}
 
 		count += 1

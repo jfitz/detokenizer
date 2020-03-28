@@ -41,7 +41,7 @@
 410 IF F2<=F1 GOTO 300
 420 U1=F1+F2
 430 IF U1=U2 GOTO 310
-440 IN$=P$+"-10-10-10 NO!!"+STR$(U2)+" is NOT correct-10-10... Try it again-10-10!! "+Q$:\n\tO1=O1+1:GOTO 370
+440 IN$=P$+"\a\a\a NO!!"+STR$(U2)+" is NOT correct\a\a... Try it again\a\a!! "+Q$:\n\tO1=O1+1:GOTO 370
 450 PRINT CS$Y$"/0SUPER!  Let's have some fun!":RUN"GAMES"
 460 PRINT X1$P$Y$"80 Hit any key to continue..... ";
 470 PRINT Y5$" ";
@@ -49,4 +49,4 @@
 490 IF ASC(A$)>96 AND ASC(A$)<123 THEN A$=CHR$(ASC(A$)-32)
 500 RETURN
 510 :REM \t\tERROR MESSEGES
-520 PRINT Y$"70ERROR!!!!-10-10-10-10   #"ERR" in -10-10line #"ERL:STOP
+520 PRINT Y$"70ERROR!!!!\a\a\a\a   #"ERR" in \a\aline #"ERL:STOP

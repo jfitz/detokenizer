@@ -10,5 +10,5 @@
 100 PRINT X5$;:IF A$="N" OR A$="n" THEN RUN"MENU" :ELSE 40
 110 Q=Q+1:IF A<G THEN H$=" LESS  " :ELSE H$="GREATER"
 120 PRINT Y$"+("USING "####";A;
-130 PRINT " is "P$H$Q$" than my number-10-10... Try again!  "P$USING " ### ";Q
+130 PRINT " is "P$H$Q$" than my number\a\a... Try again!  "P$USING " ### ";Q
 140 PRINT Q$Y$"% "E$"M":GOTO 60
