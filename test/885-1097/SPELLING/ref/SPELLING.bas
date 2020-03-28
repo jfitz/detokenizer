@@ -8,31 +8,31 @@
 80 PRINT "\tshould be spelled.  If you do well enough, you may play a"
 90 PRINT "\tgame.  Otherwise, more work !!!"
 100 PRINT "\t\t\t\tHERE WE GO...":GOSUB 280
-110 R=0x11:FOR Q=0x12 TO 1000:A1$=""
+110 R=0:FOR Q=1 TO 1000:A1$=""
 120 READ B$,C$
 130 PRINT CS$Y$",+"B$"."
 140 PRINT Y$"0&What word is spelled wrong in the above sentence? "Y5$;
 150 GOSUB 300:IF A$=CHR$(13) THEN 180
-160 IF A$=CHR$(127) OR A$=CHR$(0x19) THEN A1$="":\n\tPRINT Y$"0&"J$P$Y$"2C Try again! "Q$:GOTO 140
+160 IF A$=CHR$(127) OR A$=CHR$(8) THEN A1$="":\n\tPRINT Y$"0&"J$P$Y$"2C Try again! "Q$:GOTO 140
 170 PRINT A$J$;:A1$=A1$+A$:GOTO 150
-180 IF A1$=C$ THEN R=R+0x12:GOTO 200
-190 PRINT P$Y$"2C Wrong0x070x070x07 "Q$:GOSUB 280
+180 IF A1$=C$ THEN R=R+1:GOTO 200
+190 PRINT P$Y$"2C Wrong-10-10-10 "Q$:GOSUB 280
 200 NEXT Q
-210 P=INT(100*R/(Q-0x12))
+210 P=INT(100*R/(Q-1))
 220 IF P>70 GOTO 260
-230 PRINT CS$Y$"#(I'm very sorry0x070x070x07, but you have only gotten"P"per cent correct."
+230 PRINT CS$Y$"#(I'm very sorry-10-10-10, but you have only gotten"P"per cent correct."
 240 PRINT "\tYou need to get 70 percent or more to play a game.  Let's try"
-250 PRINT "\tit again, OK!0x070x07":GOSUB 280:GOTO 10
-260 PRINT CS$Y$"#0HURRY!0x070x07"Y$"(0You have gotten"P"per cent correct."
+250 PRINT "\tit again, OK!-10-10":GOSUB 280:GOTO 10
+260 PRINT CS$Y$"#0HURRY!-10-10"Y$"(0You have gotten"P"per cent correct."
 270 PRINT Y$"*0That is good enough to play a game or two!!!":GOSUB 280:RUN"GAMES"
 280 PRINT X1$P$Y$"80 Hit any key to continue..... ";
 290 PRINT Y5$" ";
-300 PRINT Y5$;:A$=INPUT$(0x12):PRINT X5$Y1$;
+300 PRINT Y5$;:A$=INPUT$(1):PRINT X5$Y1$;
 310 IF ASC(A$)>96 AND ASC(A$)<123 THEN A$=CHR$(ASC(A$)-32)
 320 RETURN
 330 :REM \t\tERROR MESSEGES
-340 IF ERR=0x15 THEN RESUME 210
-350 PRINT "ERROR!!!!0x070x070x070x07   #"ERR" in 0x070x07line #"ERL:STOP
+340 IF ERR=4 THEN RESUME 210
+350 PRINT "ERROR!!!!-10-10-10-10   #"ERR" in -10-10line #"ERL:STOP
 360 :REM \t\tAdd your own sentences and words.\t\n\t\t\tUse this format.\t\n    DATA "SENTENCE FOLLOWED BY THE WORD THAT US SPELLED WRONG.","WORD"
 370 DATA "THE YELLOW CAT JUMPED OWVER MY FOOT","OVER"
 380 DATA "I WISH THAT I DIDN'T HAVE TO GO HOM","HOME"

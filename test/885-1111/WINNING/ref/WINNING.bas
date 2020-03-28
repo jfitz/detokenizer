@@ -19,24 +19,24 @@
 190 PRINTY$"'G#  4=Scissors #"Y$"(G# # # # # # # #"
 200 PRINTY$"-B"F$"^^^^^^^^^^^^^^^^^^^^^^^^^"Y$".B`"Y$".Z`"
 210 PRINTY$"/B^^^^^^^^^^^^^^^^^^^^^^^^^"G$
-220 PRINTY$".C  Hit <ESC> to quit...";:FORX=0x12TO500:NEXTX
+220 PRINTY$".C  Hit <ESC> to quit...";:FORX=1TO500:NEXTX
 230 :REM 
 240 :REM \t  Start playing
 250 :REM Update score and erase pictures
 260 PRINTY$;CHR$(34);"+";PP;Y$"-+";CP
-270 PRINTY$"$ ";:FORX=0x12TO0x16:PRINT"                    ":NEXTX
-280 PRINTY$"/ ";:FORX=0x12TO0x16:PRINT"                    ":NEXTX
+270 PRINTY$"$ ";:FORX=1TO5:PRINT"                    ":NEXTX
+280 PRINTY$"/ ";:FORX=1TO5:PRINT"                    ":NEXTX
 290 :REM Computer gets random guess
-300 CG=INT(RND(0x12)*0x17)+0x12:IFCG=0x16THENCG=0x12:ELSEIFCG=0x17THENCG=0x13
+300 CG=INT(RND(1)*6)+1:IFCG=5THENCG=1:ELSEIFCG=6THENCG=2
 310 PRINTY$".C      I'm ready...    ";:OX=OL:OL=G
-320 I$=INPUT$(0x12):IFASC(I$)=27THEN940:ELSEG=VAL(I$):IFG<0x12ORG>0x15THEN320
+320 I$=INPUT$(1):IFASC(I$)=27THEN940:ELSEG=VAL(I$):IFG<1ORG>4THEN320
 330 :REM Paint player's guess
-340 PRINT Y$"$ ";:IF OX=0x12 AND OL=0x12 AND G=0x12 THEN CG=0x15
+340 PRINT Y$"$ ";:IF OX=1 AND OL=1 AND G=1 THEN CG=4
 350 ON G GOSUB 680,740,810,860
 360 :REM Paint computers guess
 370 PRINTY$"/ ";
 380 ON CG GOSUB680,740,810,860
-390 WF=0x11
+390 WF=0
 400 ON G GOTO 420,430,440
 410 ONCGGOTO530,570,590,470
 420 ONCGGOTO470,490,510,530
@@ -44,23 +44,23 @@
 440 ONCGGOTO510,550,470,590
 450 :REM 
 460 :REM Print guess messages and figure who wins
-470 GM$="     It's a tie...    ":WF=0x13
+470 GM$="     It's a tie...    ":WF=2
 480 GOTO600
-490 GM$="  Paper beats well... ":IFG=0x12THENWF=0x12
+490 GM$="  Paper beats well... ":IFG=1THENWF=1
 500 GOTO600
-510 GM$="  Paper beats rock... ":IFG=0x12THENWF=0x12
+510 GM$="  Paper beats rock... ":IFG=1THENWF=1
 520 GOTO600
-530 GM$=" Scissors beats paper.":IFG=0x15THENWF=0x12
+530 GM$=" Scissors beats paper.":IFG=4THENWF=1
 540 GOTO600
-550 GM$="  Well beats rock...  ":IFG=0x13THENWF=0x12
+550 GM$="  Well beats rock...  ":IFG=2THENWF=1
 560 GOTO600
-570 GM$=" Well beats scissors. ":IFG=0x13THENWF=0x12
+570 GM$=" Well beats scissors. ":IFG=2THENWF=1
 580 GOTO600
-590 GM$=" Rock beats scissors. ":IFG=0x14THENWF=0x12
+590 GM$=" Rock beats scissors. ":IFG=3THENWF=1
 600 PRINTY$".C";GM$
-610 FORX=0x12TO800:NEXTX
+610 FORX=1TO800:NEXTX
 620 :REM Add point to winners score
-630 IFWF=0x13THEN260:ELSEIFWF=0x12THENPP=PP+0x12:ELSECP=CP+0x12
+630 IFWF=2THEN260:ELSEIFWF=1THENPP=PP+1:ELSECP=CP+1
 640 GOTO260
 650 :REM 
 660 :REM \t  Subroutines to paint charachters
@@ -94,6 +94,6 @@
 940 IFPP=CPTHENGR$="   It's a tie game!!  "
 950 IFPP<CPTHENGR$="    I win the game!!  "
 960 IFPP>CPTHENGR$="   You win the game!! "
-970 PRINTY$".C";GR$:FORX=0x12TO1000:NEXTX
+970 PRINTY$".C";GR$:FORX=1TO1000:NEXTX
 980 PRINTE$+"E"+E$+"y5"
 990 END

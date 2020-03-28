@@ -17,7 +17,6 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 
 	count := 0
 	done := false
-	dim_seen := false
 
 	for !done {
 		b := data[count]
@@ -25,11 +24,7 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 
 		handled := false
 
-		if b16 == 0x86 {
-			dim_seen = true
-		}
-
-		// 0x0F - 1-byte integer
+		// 0x0F - 1-byte integer as decimal
 		if b == 0x0F {
 			i := int(data[count+1])
 
@@ -39,7 +34,7 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 			handled = true
 		}
 
-		// 0x0E - 2-byte integer
+		// 0x0E - 2-byte integer as decimal
 		if b == 0x0E {
 			i := int(data[count+2])*256 + int(data[count+1])
 
@@ -69,7 +64,8 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 			handled = true
 		}
 
-		// 0x1C - 2-byte integer
+		// 0x1C - 2-byte integer as decimal
+		// why duplicate 0x0E? Is something different?
 		if b == 0x1C {
 			i := int(data[count+2])*256 + int(data[count+1])
 
@@ -79,7 +75,7 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 			handled = true
 		}
 
-		// 0x1D and 0x1F - 4-byte float
+		// 0x1D and 0x1F - 4-byte float as decimal
 		if b == 0x1D || b == 0x1F {
 			bs := data[count+1 : count+5]
 			fmt.Printf("[%02X]", b)
@@ -159,15 +155,9 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 		}
 
 		if !handled {
-			if dim_seen {
-				// on DIM line
-				// convert to ASCII decimal
-				fmt.Printf("%d", b16)
-			} else {
-				// on other lines
-				// convert to escaped hex
-				fmt.Printf("0x%02X", b16)
-			}
+			// 1-byte numeric as decimal
+			n := b16 - 0x11
+			fmt.Printf("%d", n)
 		}
 
 		count += 1

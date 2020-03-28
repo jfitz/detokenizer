@@ -4,10 +4,10 @@
 40 PRINTY$"%8`` c vat ```` va  eac`"Y$"'8`"Y$"(8`"Y$")8`"Y$"*8`"
 50 PRINTY$"&8`ead u u uedu ead ead`"Y$"+8eaaaaaaaaaaaaaaaaaaaad"
 60 PRINTY$"'M`"Y$"(M`"Y$")M`"Y$"*M`"E$"G"Y$"';1. Scenic Drive"\n\tY$"(;2. Hangman"Y$");3. Tic Tac Toe"Y$"*;4. Lunar Lander"
-70 PRINTY$"35Your choice? (1 to 4) <END>"E$"y5";:A$=INPUT$(0x12):PRINTX5$;
+70 PRINTY$"35Your choice? (1 to 4) <END>"E$"y5";:A$=INPUT$(1):PRINTX5$;
 80 IFA$=CHR$(13)THENPRINTE$"E":RUN"MENU"
 90 ONVAL(A$)GOTO120,130,140,150
-100 PRINT"0x070x07";:GOTO 70
+100 PRINT"-10-10";:GOTO 70
 110 PRINTE$"E"Y$"+2Loading..."
 120 RUN"SCENECAR
 130 RUN"HANGMAN

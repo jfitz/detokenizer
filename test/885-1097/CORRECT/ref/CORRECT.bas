@@ -11,34 +11,34 @@
 110 PRINT "\tNOT used correctly, type the correct word.  If the sentence"
 120 PRINT "\thas no errors, just hit the RETURN key."
 130 GOSUB 340
-140 FOR Q=0x12 TO 100:READ B$,C$:A1$=""
+140 FOR Q=1 TO 100:READ B$,C$:A1$=""
 150 PRINT E$"H"CS$:PRINT Y$",+"B$
 160 PRINT Y$"00What is wrong? <OK>";
 170 GOSUB 360:IF A$=CHR$(13) THEN 200
-180 IF A$=CHR$(127) OR A$=CHR$(0x19) THEN A1$="":\n\tPRINT Y$"0&"J$P$Y$"2C Try again!0x07 "Q$:GOTO 160
+180 IF A$=CHR$(127) OR A$=CHR$(8) THEN A1$="":\n\tPRINT Y$"0&"J$P$Y$"2C Try again!-10 "Q$:GOTO 160
 190 PRINT A$J$;:A1$=A1$+A$:GOTO 170
 200 IF A1$="" THEN A1$="OK"
-210 IF A1$=C$ THEN R=R+0x12:GOTO 230
-220 PRINT "\t"P$" Wron0x070x070x07g ":GOSUB 340
+210 IF A1$=C$ THEN R=R+1:GOTO 230
+220 PRINT "\t"P$" Wron-10-10-10g ":GOSUB 340
 230 NEXT Q
 240 PRINT CS$
-250 TM=INT((100*R)/(Q-0x12)):IF TM>K0 THEN GOTO 300
-260 PRINT "\tSORRY0x070x07... But you only received a score of"TM"per"
+250 TM=INT((100*R)/(Q-1)):IF TM>K0 THEN GOTO 300
+260 PRINT "\tSORRY-10-10... But you only received a score of"TM"per"
 270 PRINT "\tcent.  Please go ask mom or dad to give you a hand, and try"
 280 PRINT "\tthis quiz again."
-290 GOSUB 340:R=0x11:GOTO 80
+290 GOSUB 340:R=0:GOTO 80
 300 PRINT "\tVery good... You received a score of"TM"per cent."
 310 PRINT "\tThat makes you eligible for the GRAND PRIZE. (A GAME.)"
 320 PRINT "\tHang on a minute while I set things up..."
 330 RUN"GAMES"
 340 PRINT X1$P$Y$"80 Hit any key to continue..... ";
 350 PRINT Y5$" ";
-360 PRINT Y5$;:A$=INPUT$(0x12):PRINT X5$Y1$;
+360 PRINT Y5$;:A$=INPUT$(1):PRINT X5$Y1$;
 370 IF ASC(A$)>96 AND ASC(A$)<123 THEN A$=CHR$(ASC(A$)-32)
 380 RETURN
 390 :REM \t\tERROR MESSEGES
-400 IF ERR=0x15 THEN RESUME 240
-410 PRINT "ERROR!!!!0x070x070x070x07   #"ERR" in 0x070x07line #"ERL:STOP
+400 IF ERR=4 THEN RESUME 240
+410 PRINT "ERROR!!!!-10-10-10-10   #"ERR" in -10-10line #"ERL:STOP
 420 DATA "The computer is to smart for me!","TOO" 
 430 DATA "If I get a turtle, then I will have two pets.","OK" 
 440 DATA "I can hardly wait too go to the pet store!","TO" 

@@ -12,54 +12,54 @@
 200 GOSUB 10800:PRINT E1$ NC$
 300 PRINT CP$"(=O N E   C H E C K"
 400 PRINT CP$"*:Solitare checker puzzle"
-500 PRINT CP$",:Want instructions (Y/N) "YC$;:A$=INPUT$(0x12):PRINT A$
+500 PRINT CP$",:Want instructions (Y/N) "YC$;:A$=INPUT$(1):PRINT A$
 600 IF A$="N" OR A$="n" THEN PRINT E1$:GOTO 1500
-700 IF  A$="y" OR A$="Y" THEN 800 :ELSE PRINT NC$ CHR$(0x18) CP$"-:Y or N, Please":PRINT CP$",:" E$"K":GOTO 500
+700 IF  A$="y" OR A$="Y" THEN 800 :ELSE PRINT NC$ CHR$(7) CP$"-:Y or N, Please":PRINT CP$",:" E$"K":GOTO 500
 800 PRINT NC$ E1$ CP$"$.48 Checkers are placed on the 2 outside spaces of a"
 900 PRINT CP$"%.standard 64-square checkerboard. The object is to remove"
 1000 PRINT CP$"&.as many checkers as possible by DIAGONAL jumps (as in"
 1100 PRINT CP$"'.standard checkers). Use the numbers UNDER the squares to"
 1200 PRINT CP$"(.indicate the square you wish to jump FROM and TO."
 1300 PRINT CP$",.To end the game, input 0 (zero) in response to FROM."
-1400 PRINT CP$"..Tap the ";YR$ "RETURN" NR$" key to start." YC$;:A$=INPUT$(0x12):PRINT E1$
-1500 FOR J=0x12 TO 64
+1400 PRINT CP$"..Tap the ";YR$ "RETURN" NR$" key to start." YC$;:A$=INPUT$(1):PRINT E1$
+1500 FOR J=1 TO 64
 1600 A$(J)=" ^"
 1700 NEXT J
-1800 FOR J=19 TO 43 STEP 0x19
-1900 FOR I=J TO J+0x14
+1800 FOR J=19 TO 43 STEP 8
+1900 FOR I=J TO J+3
 2000 A$(I)="  "
 2100 NEXT I
 2200 NEXT J
-2300 M=0x11
+2300 M=0
 2400 GOSUB 5200
 2450 PRINTCP$"* TYPE 0 (ZERO) WHEN OUT OF MOVES"
-2500 PRINT CP$".#JUMP FROM " YC$;NG$;:INPUT F:PRINT NC$:IF F=0x11 THEN 4000
+2500 PRINT CP$".#JUMP FROM " YC$;NG$;:INPUT F:PRINT NC$:IF F=0 THEN 4000
 2600 PRINT CP$".3TO ";YC$;:INPUT T:PRINT NC$ CP$".:" E$"o" YG$
-2700 F1=INT((F-0x12)/0x19)
-2800 F2=F-0x19*F1
-2900 T1=INT((T-0x12)/0x19)
-3000 T2=T-0x19*T1
-3100 IF F1>0x18 OR T1>0x18 OR F2>0x19 OR T2>0x19 THEN 3400
-3200 IF ABS(F1-T1)<>0x13 OR ABS(F2-T2)<>0x13 OR A$((T+F)/0x13)=" " OR A$(F)=" " OR A$(T)="^" THEN 3400
+2700 F1=INT((F-1)/8)
+2800 F2=F-8*F1
+2900 T1=INT((T-1)/8)
+3000 T2=T-8*T1
+3100 IF F1>7 OR T1>7 OR F2>8 OR T2>8 THEN 3400
+3200 IF ABS(F1-T1)<>2 OR ABS(F2-T2)<>2 OR A$((T+F)/2)=" " OR A$(F)=" " OR A$(T)="^" THEN 3400
 3300 GOTO 3500
-3400 PRINT CHR$(0x18) YR$ CP$"0#ILLEGAL MOVE. TRY AGAIN..." NR$:FOR A=0x12 TO 800:NEXT:PRINT CP$"0>" E$"o":GOTO 2500
+3400 PRINT CHR$(7) YR$ CP$"0#ILLEGAL MOVE. TRY AGAIN..." NR$:FOR A=1 TO 800:NEXT:PRINT CP$"0>" E$"o":GOTO 2500
 3500 A$(T)=" ^"
 3600 A$(F)="  "
-3700 A$((T+F)/0x13)="  "
-3800 M=M+0x12
+3700 A$((T+F)/2)="  "
+3800 M=M+1
 3900 GOSUB 7000:PRINT NG$:GOTO 2500
-4000 PRINT NG$:S=0x11
-4100 FOR I=0x12 TO 64
-4200 IF MID$(A$(I),0x13,0x12)="^" THEN S=S+0x12
+4000 PRINT NG$:S=0
+4100 FOR I=1 TO 64
+4200 IF MID$(A$(I),2,1)="^" THEN S=S+1
 4300 NEXT I
 4400 PRINT CP$". You made" M "jumps and had" S "pieces"
 4500 PRINT CP$"/ remaining on the board."
-4600 PRINT CHR$(0x18);CP$"52Want to play again? (Y/N) " YC$;:A$=INPUT$(0x12):PRINT A$
+4600 PRINT CHR$(7);CP$"52Want to play again? (Y/N) " YC$;:A$=INPUT$(1):PRINT A$
 4700 IF A$="Y" OR A$="y" THEN PRINT E1$:GOTO1500
 4800 IF A$="n" OR A$="N" THEN 5000
-4900 PRINT CHR$(0x18);NC$;CP$"62Y or N, PLEASE":PRINT CP$"52" E$"K":GOTO 4600
+4900 PRINT CHR$(7);NC$;CP$"62Y or N, PLEASE":PRINT CP$"52" E$"K":GOTO 4600
 5000 PRINT NC$ E1$ YR$ CP$")=STAY LOOSE!"
-5100 PRINT NG$ YC$ NR$:FOR X=0x12 TO 1500:NEXT:PRINTCHR$(27)"z":FORX=0x12TO500:NEXT:END
+5100 PRINT NG$ YC$ NR$:FOR X=1 TO 1500:NEXT:PRINTCHR$(27)"z":FORX=1TO500:NEXT:END
 5200 PRINT YG$ NC$ YR$
 5300 PRINT CP$ CHR$(34)"Dfaaasaaasaaasaaasaaasaaasaaasaaac"
 5400 PRINT CP$"#D`   `   `   `   `   `   `   `   `"
@@ -78,9 +78,9 @@
 6700 PRINT CP$"0Dv49ab50ab51ab52ab53ab54ab55ab56at"
 6800 PRINT CP$"1D`   `   `   `   `   `   `   `   `"
 6900 PRINT CP$"2De57au58au59au60au61au62au63au64ad"
-7000 PRINT YR$ YG$ CP$"#E"A$(0x12) CP$"#I"A$(0x13) CP$"#M"A$(0x14) CP$"#Q"A$(0x15) CP$"#U"A$(0x16)
-7100 PRINT CP$"#Y"A$(0x17) CP$"#]"A$(0x18) CP$"#a"A$(0x19)
-7200 PRINT CP$"%E"A$(0x1A) CP$"%I"A$(10) CP$"%M"A$(11) CP$"%Q"A$(12) CP$"%U"A$(13)
+7000 PRINT YR$ YG$ CP$"#E"A$(1) CP$"#I"A$(2) CP$"#M"A$(3) CP$"#Q"A$(4) CP$"#U"A$(5)
+7100 PRINT CP$"#Y"A$(6) CP$"#]"A$(7) CP$"#a"A$(8)
+7200 PRINT CP$"%E"A$(9) CP$"%I"A$(10) CP$"%M"A$(11) CP$"%Q"A$(12) CP$"%U"A$(13)
 7300 PRINT CP$"%Y"A$(14) CP$"%]"A$(15) CP$"%a"A$(16)
 7400 PRINT CP$"'E"A$(17) CP$"'I"A$(18) CP$"'M"A$(19) CP$"'Q"A$(20) CP$"'U"A$(21)
 7500 PRINT CP$"'Y"A$(22) CP$"']"A$(23) CP$"'a"A$(24)
