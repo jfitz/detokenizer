@@ -23,6 +23,8 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 		b := data[count]
 		b16 := int(b)
 
+		handled := false
+
 		if b16 == 0x86 {
 			dim_seen = true
 		}
@@ -34,6 +36,7 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 			fmt.Printf("%d", i)
 
 			count += 1
+			handled = true
 		}
 
 		// 0x0E - 2-byte integer
@@ -43,6 +46,7 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 			fmt.Printf("%d", i)
 
 			count += 2
+			handled = true
 		}
 
 		// 0x0C - 2-byte integer
@@ -52,6 +56,7 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 			fmt.Printf("%d", i)
 
 			count += 2
+			handled = true
 		}
 
 		// 0x1C - 2-byte integer
@@ -61,6 +66,7 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 			fmt.Printf("%d", i)
 
 			count += 2
+			handled = true
 		}
 
 		// 0x1D and 0x1F - 4-byte float
@@ -78,6 +84,7 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 			// }
 
 			count += 4
+			handled = true
 		}
 
 		// 0xFF - 2-byte token
@@ -91,6 +98,7 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 			}
 
 			count += 1
+			handled = true
 		}
 
 		// 0x80 to 0xFE - 1-byte token
@@ -100,59 +108,56 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 			} else {
 				fmt.Printf("[%02X]", b16)
 			}
+
+			handled = true
 		}
 
 		// 0x32 to 0x7F - plain character
 		if b >= 0x20 && b <= 0x7F {
 			fmt.Printf("%c", b16)
-		}
 
-		// 0x01 to 0x31 - certain tokens or a 1-byte integer
-		if b > 0 && b < 0x20 {
-			handled := false
-
-			if b == 0x09 {
-				// TAB
-				fmt.Print("\\t")
-
-				handled = true
-			}
-
-			if b == 0x0A {
-				// LF
-				fmt.Print("\\n")
-
-				handled = true
-			}
-
-			if b == 0x0D {
-				// CR
-				fmt.Print("\\r")
-
-				handled = true
-			}
-
-			if b == 0x0E || b == 0x0F || b == 0x0C || b == 0x1C || b == 0x1D || b == 0x1F {
-				// do nothing (already handled above)
-				handled = true
-			}
-
-			if !handled {
-				if dim_seen {
-					// on DIM line
-					// convert to ASCII decimal
-					fmt.Printf("%d", b16)
-				} else {
-					// on other lines
-					// convert to escaped hex
-					fmt.Printf("0x%02X", b16)
-				}
-			}
+			handled = true
 		}
 
 		// byte of zero is end of line
 		if b16 == 0 {
 			done = true
+
+			handled = true
+		}
+
+		// 0x01 to 0x31 - certain tokens or a 1-byte integer
+		if b == 0x09 {
+			// TAB
+			fmt.Print("\\t")
+
+			handled = true
+		}
+
+		if b == 0x0A {
+			// LF
+			fmt.Print("\\n")
+
+			handled = true
+		}
+
+		if b == 0x0D {
+			// CR
+			fmt.Print("\\r")
+
+			handled = true
+		}
+
+		if !handled {
+			if dim_seen {
+				// on DIM line
+				// convert to ASCII decimal
+				fmt.Printf("%d", b16)
+			} else {
+				// on other lines
+				// convert to escaped hex
+				fmt.Printf("0x%02X", b16)
+			}
 		}
 
 		count += 1
