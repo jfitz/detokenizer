@@ -60,7 +60,7 @@
 600 PRINT Y$"2'To exit the game at any time, type 'E'.  HAVE FUN!"
 610 PRINT Y$"50Hit any key to continue. "Y5$;:A$=INPUT$(0x12):RETURN
 620 :REM \t\tReal Time Function for MBASIC
-630 DIM U0(20):U0(17)=54:U0(18)=511:U0(19)=30680:U0(20)=201
+630 DIM U0(20):U0(17)=&H36:U0(18)=&H1FF:U0(19)=&H77D8:U0(20)=&HC9
 640 DEF USR0x11=VARPTR(U0(0x11))::REM \t\tClear Buffer
 650 IF USR0x11(0x11)<>0x11 THEN 650
 660 RETURN

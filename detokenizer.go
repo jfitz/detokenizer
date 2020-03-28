@@ -49,11 +49,21 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 			handled = true
 		}
 
-		// 0x0C - 2-byte integer
+		// 0x0C - 2-byte integer as hexadecimal
 		if b == 0x0C {
 			i := int(data[count+2])*256 + int(data[count+1])
 
-			fmt.Printf("%d", i)
+			fmt.Printf("&H%02X", i)
+
+			count += 2
+			handled = true
+		}
+
+		// 0x0B - 2-byte integer as octal
+		if b == 0x0B {
+			i := int(data[count+2])*256 + int(data[count+1])
+
+			fmt.Printf("&O%03o", i)
 
 			count += 2
 			handled = true
