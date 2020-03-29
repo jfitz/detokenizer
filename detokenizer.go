@@ -4,8 +4,6 @@ Dump tokenized MBASIC-80 program
 package main
 
 import (
-	//  "bytes"
-	//	"encoding/binary"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -22,9 +20,9 @@ func twoNegPower32(exponent int) float32 {
 
 	for exponent > 0 {
 		f = value * f
-		f = 1 / f
 		exponent -= 1
 	}
+	f = 1 / f
 
 	return f
 }
@@ -39,9 +37,9 @@ func twoNegPower64(exponent int) float64 {
 
 	for exponent > 0 {
 		f = value * f
-		f = 1 / f
 		exponent -= 1
 	}
+	f = 1 / f
 
 	return f
 }
@@ -142,7 +140,7 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 
 			f1a := float64(bt1) * twoNegPower64(55)
 			f1b := float64(bt2) * twoNegPower64(47)
-			f1c := float64(bt3) * twoNegPower64(38)
+			f1c := float64(bt3) * twoNegPower64(39)
 			f1d := float64(bt4) * twoNegPower64(31)
 			f1e := float64(bt5) * twoNegPower64(23)
 			f1f := float64(bt6) * twoNegPower64(15)

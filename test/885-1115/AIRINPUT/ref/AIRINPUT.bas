@@ -1,6 +1,6 @@
 10 :REM  AIRINPUT.BAS\tAlan Bose\t08-Jan-82
 20 CLEAR1500:WIDTH255:ON ERROR GOTO3860
-30 BL$=CHR$(7):E$=CHR$(27):ER$=E$+"E":P$=E$+"p":Q$=E$+"q":G$=E$+"F":NG$=E$+"G":Y$=E$+"Y":L$=E$+"l":J$=E$+"j":K$=E$+"k":J1$=E$+"J":U=404
+30 BL$=CHR$(7):E$=CHR$(27):ER$=E$+"E":P$=E$+"p":Q$=E$+"q":G$=E$+"F":NG$=E$+"G":Y$=E$+"Y":L$=E$+"l":J$=E$+"j":K$=E$+"k":J1$=E$+"J":U=1.790493109375
 40 DEF FN C$(C1,C2)=Y$+CHR$(C1+31)+CHR$(C2+31)
 50 DEF FNS6(X)=INT(X*10+0.5)/10
 60 DEF FNS7(X)=ATN(X/SQR(1-X*X))*U

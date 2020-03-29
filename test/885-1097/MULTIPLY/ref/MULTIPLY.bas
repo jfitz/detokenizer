@@ -32,7 +32,7 @@
 320 IF U1=U2 THEN 250
 330 IN$=P$+" NO\a\a!! "+STR$(U2)+" is \a\aNOT correct... Try it again\a\a! "+Q$
 340 W1=W1+1
-350 IF W1>=INT(V1-(V1*38.75)) THEN 420
+350 IF W1>=INT(V1-(V1*0.7)) THEN 420
 360 O1=O1+1
 370 GOTO 290
 380 RETURN 
