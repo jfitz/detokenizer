@@ -12,6 +12,40 @@ import (
 	"os"
 )
 
+func twoNegPower32(exponent int) float32 {
+	value := float32(2.0)
+	f := float32(1.0)
+
+	if exponent == 0 {
+		return f
+	}
+
+	for exponent > 0 {
+		f = value * f
+		f = 1 / f
+		exponent -= 1
+	}
+
+	return f
+}
+
+func twoNegPower64(exponent int) float64 {
+	value := float64(2.0)
+	f := float64(1.0)
+
+	if exponent == 0 {
+		return f
+	}
+
+	for exponent > 0 {
+		f = value * f
+		f = 1 / f
+		exponent -= 1
+	}
+
+	return f
+}
+
 func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[int]string, prefix byte) int {
 	fmt.Printf("%d ", line_number)
 
@@ -75,21 +109,51 @@ func dumpAscii(line_number int, data []byte, table map[int]string, table2 map[in
 			handled = true
 		}
 
-		// 0x1D and 0x1F - 4-byte float as decimal
-		if b == 0x1D || b == 0x1F {
-			bs := data[count+1 : count+5]
-			fmt.Printf("[%02X]", b)
-			fmt.Printf("%02X", bs)
-			// var v float32
-			// buf := bytes.NewReader(bs)
-			// err := binary.Read(buf, binary.LittleEndian, &v)
-			// if err == nil {
-			// 	fmt.Printf("%f", v)
-			// } else {
-			// 	fmt.Print("bad float")
-			// }
+		// 0x1D - 4-byte float as decimal
+		if b == 0x1D {
+			bt1 := int(data[count+1])
+			bt2 := int(data[count+2])
+			bt3 := int(data[count+3])
+			bt4 := int(data[count+4])
+
+			f1a := float32(bt1) * twoNegPower32(23)
+			f1b := float32(bt2) * twoNegPower32(15)
+			f1c := float32(bt3) * twoNegPower32(7)
+			f1 := f1a + f1b + f1c + float32(1.0)
+			f2 := twoNegPower32(129 - bt4)
+			f := f1 * f2
+
+			fmt.Printf("%g", f)
 
 			count += 4
+			handled = true
+		}
+
+		// 0x1F - 8-byte float as decimal
+		if b == 0x1F {
+			bt1 := int(data[count+1])
+			bt2 := int(data[count+2])
+			bt3 := int(data[count+3])
+			bt4 := int(data[count+4])
+			bt5 := int(data[count+5])
+			bt6 := int(data[count+6])
+			bt7 := int(data[count+7])
+			bt8 := int(data[count+8])
+
+			f1a := float64(bt1) * twoNegPower64(55)
+			f1b := float64(bt2) * twoNegPower64(47)
+			f1c := float64(bt3) * twoNegPower64(38)
+			f1d := float64(bt4) * twoNegPower64(31)
+			f1e := float64(bt5) * twoNegPower64(23)
+			f1f := float64(bt6) * twoNegPower64(15)
+			f1g := float64(bt7) * twoNegPower64(7)
+			f1 := f1a + f1b + f1c + f1d + f1e + f1f + f1g + 1.0
+			f2 := twoNegPower64(129 - bt8)
+			f := f1 * f2
+
+			fmt.Printf("%g", f)
+
+			count += 8
 			handled = true
 		}
 

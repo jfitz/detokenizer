@@ -1,8 +1,8 @@
 10 :REM  AIRINPUT.BAS\tAlan Bose\t08-Jan-82
 20 CLEAR1500:WIDTH255:ON ERROR GOTO3860
-30 BL$=CHR$(7):E$=CHR$(27):ER$=E$+"E":P$=E$+"p":Q$=E$+"q":G$=E$+"F":NG$=E$+"G":Y$=E$+"Y":L$=E$+"l":J$=E$+"j":K$=E$+"k":J1$=E$+"J":U=[1F]184F3DD2STEP.eDIM
+30 BL$=CHR$(7):E$=CHR$(27):ER$=E$+"E":P$=E$+"p":Q$=E$+"q":G$=E$+"F":NG$=E$+"G":Y$=E$+"Y":L$=E$+"l":J$=E$+"j":K$=E$+"k":J1$=E$+"J":U=404
 40 DEF FN C$(C1,C2)=Y$+CHR$(C1+31)+CHR$(C2+31)
-50 DEF FNS6(X)=INT(X*10+[1D]00000080)/10
+50 DEF FNS6(X)=INT(X*10+0.5)/10
 60 DEF FNS7(X)=ATN(X/SQR(1-X*X))*U
 70 DEF FNS8(X)=SIN(ABS(A/2)/U)*COS(X/U)/SIN(Q2/2)
 80 PRINT ER$;"Standby one..."
