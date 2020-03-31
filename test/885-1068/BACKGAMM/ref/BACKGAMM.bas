@@ -1,8 +1,8 @@
-10 :REM \t\tBACKGAMM.BAS
-20 :REM \t\tFOR HEATH H-8 OR H-89 WITH H-19
-30 :REM \t\tREQUIRES MICROSOFT
-40 :REM \t\tBy:     R. Wild \n\t\t\tOSO11 Nepil Ave. \n\t\t\tWheaton, IL  60187\t\t\t
-50 :REM \t\tIdea by Cursor Magazine
+10 :REMARK \t\tBACKGAMM.BAS
+20 :REMARK \t\tFOR HEATH H-8 OR H-89 WITH H-19
+30 :REMARK \t\tREQUIRES MICROSOFT
+40 :REMARK \t\tBy:     R. Wild \n\t\t\tOSO11 Nepil Ave. \n\t\t\tWheaton, IL  60187\t\t\t
+50 :REMARK \t\tIdea by Cursor Magazine
 60 CLEAR1000:PK=12
 70 :
 80 DIMB(27),D(4),DA$(3),DI$(6,6),US(4),P(24),PR(6),M$(5)

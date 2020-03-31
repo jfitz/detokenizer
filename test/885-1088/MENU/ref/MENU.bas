@@ -1,4 +1,4 @@
-10 :REM \t\tMENU.BAS\tVersion 05.02.81
+10 :REMARK \t\tMENU.BAS\tVersion 05.02.81
 20 WIDTH 255:E$=CHR$(27):C$=E$+"E":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 30 PRINT E$"x5"C$;
 40 FOR R=1 TO 6:READ P$(R):NEXT R

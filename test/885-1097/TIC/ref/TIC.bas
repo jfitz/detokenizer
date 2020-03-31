@@ -1,4 +1,4 @@
-10 :REM \t\tTIC.BAS\t\tVersion 04.23.81
+10 :REMARK \t\tTIC.BAS\t\tVersion 04.23.81
 30 CLEAR 1000:DIM A(9),B(9)
 40 E$=CHR$(27):E1$=E$+"E":F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 50 X5$=E$+"x5":Y5$=E$+"y5":J$=E$+"J":K$=E$+"K"

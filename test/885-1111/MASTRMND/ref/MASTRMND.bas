@@ -1,18 +1,18 @@
-10 :REM         MASTRMND.BAS
-20 :REM   Written by Evan J. Callahan
-30 :REM   Date Completed: June 1981
-40 :REM 
-50 :REM   E. Callahan     MODIFIED BY P. SWAYNE, HUG
-60 :REM   2514 169th N.E.
-70 :REM   Bellevue, WA 98008
-80 :REM 
-90 :REM   PURPOSE:     This is the popular game of Mastermind by Invicta.  It is a
-100 :REM          game of logic in which the player tries to guess the hidden code
-110 :REM          in as few attempts as possible.
-120 :REM 
-130 :REM      *** GAME BEGINS ***
-140 :REM 
-150 :REM      Set up board on screen
+10 :REMARK         MASTRMND.BAS
+20 :REMARK   Written by Evan J. Callahan
+30 :REMARK   Date Completed: June 1981
+40 :REMARK 
+50 :REMARK   E. Callahan     MODIFIED BY P. SWAYNE, HUG
+60 :REMARK   2514 169th N.E.
+70 :REMARK   Bellevue, WA 98008
+80 :REMARK 
+90 :REMARK   PURPOSE:     This is the popular game of Mastermind by Invicta.  It is a
+100 :REMARK          game of logic in which the player tries to guess the hidden code
+110 :REMARK          in as few attempts as possible.
+120 :REMARK 
+130 :REMARK      *** GAME BEGINS ***
+140 :REMARK 
+150 :REMARK      Set up board on screen
 160 E$=CHR$(27):F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 170 PRINT E$+"E"
 180 PRINT Y$"*=Want instructions? <N> ";:A$=INPUT$(1):PRINT A$
@@ -33,17 +33,17 @@
 330 PRINT Y$",?Q=QUIT    C=CLEAR (GUESS AGAIN)
 340 PRINT Y$".?B=BLACK PEG (RIGHT COLOR, RIGHT PLACE)"
 350 PRINT Y$"/?W=WHITE PEG (RIGHT COLOR, WRONG PLACE)"
-360 :REM 
-370 :REM      Figure out hidden code
+360 :REMARK 
+370 :REMARK      Figure out hidden code
 380 FOR N=0 TO 3
 390 C(N)=INT(6*RND(1)+1)
 400 GOSUB 800
 410 NEXT N
-420 :REM 
-430 :REM      Start guessing loop
+420 :REMARK 
+430 :REMARK      Start guessing loop
 440 FOR TN=1 TO 10
 450 PRINT Y$"8 GUESS NUMBER"TN"? ";
-460 :REM      Input loop
+460 :REMARK      Input loop
 470 IN$="":PRINT Y$"81                    ";Y$"82";
 480 PRINT E$"y5";:FOR X3=0 TO 3
 490 I1$=INPUT$(1):IF I1$="Q" THEN 930 :ELSE IFI1$="C"THEN 470
@@ -55,14 +55,14 @@
 550 PRINT Y$L1$"3"CHR$(G(3))
 560 PRINT Y$"8 <RETURN> OR 'C' ";:I2$=INPUT$(1)
 570 IF I2$="C" THEN 450 :ELSE IF I2$<>CHR$(13)THEN 560
-580 :REM      Figure out black pegs
+580 :REMARK      Figure out black pegs
 590 PRINT Y$L1$"!";
 600 BL=0
 610 FOR K=0 TO 3
 620 IF G(K)=C(K) THEN PRINT "B";E$+"C";:BL=BL+1
 630 NEXT K
 640 IF BL=4 THEN 890
-650 :REM      Figure out white pegs
+650 :REMARK      Figure out white pegs
 660 FOR X1=0 TO 3:C1(X1)=0:NEXT X1
 670 FOR I=0 TO 3
 680 FOR J=0 TO 3
@@ -75,8 +75,8 @@
 750 NEXT I
 760 NEXT TN
 770 GOTO 910
-780 :REM 
-790 :REM      Subroutine - turns numbers into letters for secret code
+780 :REMARK 
+790 :REMARK      Subroutine - turns numbers into letters for secret code
 800 ON C(N)GOTO 810,820,830,840,850,860
 810 C(N)=89:RETURN
 820 C(N)=82:RETURN
@@ -84,8 +84,8 @@
 840 C(N)=79:RETURN
 850 C(N)=71:RETURN
 860 C(N)=66:RETURN
-870 :REM 
-880 :REM      End of game messages
+870 :REMARK 
+880 :REMARK      End of game messages
 890 PRINT Y$"8 *** YOU WIN! ***         "
 900 GOTO 940
 910 PRINT Y$"8 *** YOU LOSE! ***        "

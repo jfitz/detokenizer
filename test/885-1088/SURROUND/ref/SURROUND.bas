@@ -1,11 +1,11 @@
-10 :REM \t\tSURROUND.BAS\t\tVersion 05.02.81
-20 :REM Description -->  A video game of wall building on the H19 Terminal.
-30 :REM 
-40 :REM Source -->\tTERRY L. PERRINO
-50 :REM \t\tCLAREMONT HIGH SCHOOL
-60 :REM 
-70 :REM \t\tModifications by H.U.G.
-80 :REM 
+10 :REMARK \t\tSURROUND.BAS\t\tVersion 05.02.81
+20 :REMARK Description -->  A video game of wall building on the H19 Terminal.
+30 :REMARK 
+40 :REMARK Source -->\tTERRY L. PERRINO
+50 :REMARK \t\tCLAREMONT HIGH SCHOOL
+60 :REMARK 
+70 :REMARK \t\tModifications by H.U.G.
+80 :REMARK 
 90 CLEAR 5000:WIDTH 255:DEFINT A-Z:GOSUB 630
 100 E$=CHR$(27):E1$=E$+"E":Y$=E$+"Y":F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q"
 110 Y5$=E$+"y5":X5$=E$+"x5":H$=E$+"H"
@@ -23,7 +23,7 @@
 230 PRINT Y$" %Score #1:"S1;Y$" a";
 240 PRINT "Score #2:"S2;H$P$F$;
 250 PX(1)=5:PX(2)=75:PY(1)=12:PY(2)=12:D(1)=1:D(2)=3
-260 :REM \t\t\tMOVE PLAYERS
+260 :REMARK \t\t\tMOVE PLAYERS
 270 W=W+1:IF W>2 THEN W=1
 280 IF B$(PX(W)+X(D(W)),PY(W)+Y(D(W)))="O" THEN 440
 290 PX(W)=PX(W)+X(D(W)):PY(W)=PY(W)+Y(D(W)):B$(PX(W),PY(W))="O"
@@ -44,7 +44,7 @@
 440 PRINT Y$CHR$(PY(W)+31)CHR$(PX(W)+31);
 450 IF W=1 THEN S2=S2+1:PRINT "\a1";::ELSE S1=S1+1:PRINT "\a2";
 460 ERASE B$:PRINT Q$G$;:GOTO 160
-470 :REM \t\t\tInstructions
+470 :REMARK \t\t\tInstructions
 480 PRINT E1$X5$Y$" 9* Surround *"
 490 PRINT Y$"#'Surround is played on a 22x78 grid.  The object of the game"
 500 PRINT "is to make your apponent crash into a wall by surrounding him.  The"
@@ -59,8 +59,8 @@
 590 PRINT Y$"0'keyboard on the H89."
 600 PRINT Y$"2'To exit the game at any time, type 'E'.  HAVE FUN!"
 610 PRINT Y$"50Hit any key to continue. "Y5$;:A$=INPUT$(1):RETURN
-620 :REM \t\tReal Time Function for MBASIC
+620 :REMARK \t\tReal Time Function for MBASIC
 630 DIM U0(3):U0(0)=&H36:U0(1)=&H1FF:U0(2)=&H77D8:U0(3)=&HC9
-640 DEF USR0=VARPTR(U0(0))::REM \t\tClear Buffer
+640 DEF USR0=VARPTR(U0(0))::REMARK \t\tClear Buffer
 650 IF USR0(0)<>0 THEN 650
 660 RETURN

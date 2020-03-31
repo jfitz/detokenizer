@@ -1,10 +1,10 @@
-10 :REM \t\tSCENECAR.BAS
-20 :REM 
-30 :REM Descritpion -->\tA video game of car driving on the H19 terminal.
-40 :REM 
-50 :REM Author:\tTerry L. Perrino\tClaremont High School
-60 :REM 
-70 :REM \t\tModifications by H.U.G.
+10 :REMARK \t\tSCENECAR.BAS
+20 :REMARK 
+30 :REMARK Descritpion -->\tA video game of car driving on the H19 terminal.
+40 :REMARK 
+50 :REMARK Author:\tTerry L. Perrino\tClaremont High School
+60 :REMARK 
+70 :REMARK \t\tModifications by H.U.G.
 80 CLEAR 5000:WIDTH 255:DEFINT A-Z:GOSUB 1030
 90 E$=CHR$(27):E1$=E$+"E":Y$=E$+"Y":F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q"
 100 Y5$=E$+"y5":X5$=E$+"x5":H$=E$+"H":I$=E$+"L":R$=E$+CHR$(64)+" "+E$+"O"
@@ -44,7 +44,7 @@
 450 FOR N=1 TO 24:PRINT TAB(X-6);R$(1):NEXT N
 460 PRINT C$E1$SPACE$(X2-3)"nuo"H$;
 470 X1=X2
-480 :REM \t\t\tSTART OF PROGRAM
+480 :REMARK \t\t\tSTART OF PROGRAM
 490 IF X1-X2<=1 AND X1-X2>=-2 THEN 580
 500 PRINT C$E1$SPACE$(X1-2)"\a*BOOM*"H$;:D=D+1
 510 IF D<=5 THEN 460
@@ -78,7 +78,7 @@
 790 IF G=52 THEN X1=X1-1:PRINT C$;L$;H$;:GOTO 490
 800 IF G=54 THEN X1=X1+1:PRINT C$;R$;H$;:GOTO 490
 810 IF G=69 OR G=101 THEN 520 :ELSE 490
-820 :REM \t\t\t\tINSTRUCTIONS
+820 :REMARK \t\t\t\tINSTRUCTIONS
 830 PRINT X5$E1$Y$" 5* Scenic Driving *"
 840 PRINT
 850 PRINT "\tThe object to the game is to drive your car on a curving road"
@@ -98,8 +98,8 @@
 990 PRINT "'E'.  HAPPY DRIVING!"
 1000 PRINTY$"60Hit any key to start. "Y5$;:A$=INPUT$(1):PRINT X5$
 1010 RETURN
-1020 :REM \t\tReal Time Function for MBASIC
+1020 :REMARK \t\tReal Time Function for MBASIC
 1030 DIM U0(3):U0(0)=&H36:U0(1)=&H1FF:U0(2)=&H77D8:U0(3)=&HC9
-1040 DEF USR0=VARPTR(U0(0))::REM \t\tClear Buffer
+1040 DEF USR0=VARPTR(U0(0))::REMARK \t\tClear Buffer
 1050 IF USR0(0)<>0 THEN 1050
 1060 RETURN

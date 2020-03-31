@@ -1,4 +1,4 @@
-10 :REM \t\tHANGMAN.BAS\tDEMO VERSION\t Dale Grundon
+10 :REMARK \t\tHANGMAN.BAS\tDEMO VERSION\t Dale Grundon
 20 CLEAR 1000:WIDTH 255:DIM A$(20),A1$(20)
 30 E$=CHR$(27):E1$=E$+"E":F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 40 J$=E$+"J":K$=E$+"K":X1$=E$+"x1":X5$=E$+"x5":Y5$=E$+"y5":Q1$=CHR$(34)

@@ -1,4 +1,4 @@
-10 :REM \t\tLUNAR.BAS\t\tDEMO Version
+10 :REMARK \t\tLUNAR.BAS\t\tDEMO Version
 20 CLEAR 500:DEFINT E-Z:WIDTH 255
 30 E$=CHR$(27):E1$=E$+"E":F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 40 Y5$=E$+"y5":X5$=E$+"x5":K$=E$+"K":J$=E$+"J":B$=E$+"B":D$=E$+"D":U$=CHR$(95)
@@ -20,7 +20,7 @@
 200 IF L$="L" OR L$="l" THEN 1320
 210 PRINT E$"H"
 220 A=10000
-230 B=2000:GOSUB 410::REM \t\tPrint the calibration scale
+230 B=2000:GOSUB 410::REMARK \t\tPrint the calibration scale
 240 A=10000
 250 DEF USR0=VARPTR(U0(0))
 260 IF USR0(0)<>0 THEN 260
@@ -29,11 +29,11 @@
 290 PRINT Y$"$$f2 - Decrease Fuel Burn"
 300 PRINT Y$"%$f3 - Maintain Fuel Burn"
 310 PRINT Y$"&$f4 - Cut Fuel Burn to zero"F$:RETURN
-320 :REM \t\t\t\t Print the rocket at the top
-330 W=32::REM PRINT Q$Y$" a"T7$:W=32
+320 :REMARK \t\t\t\t Print the rocket at the top
+330 W=32::REMARK PRINT Q$Y$" a"T7$:W=32
 340 L=32
 350 GOSUB 490
-360 :REM \t\t\t\tPrint the rocket coming down
+360 :REMARK \t\t\t\tPrint the rocket coming down
 370 PRINT Y$CHR$(W)"a"W$;:L=L+1:
 380 PRINT Y$CHR$(L)"a"T7$Q$:W=L
 390 IF Z9=1 GOTO 1210
@@ -46,12 +46,12 @@
 460 PRINT A"t";:A=A-B
 470 L=L+4:IF L>=52 THEN RETURN 
 480 GOTO 440
-490 :REM \t\t\t\t\tInput Output program
-500 H=9400::REM \t\t\t\tH = Height of rocket
-510 V=500: :REM \t\t\t\tV = Rate the rocket is falling
+490 :REMARK \t\t\t\t\tInput Output program
+500 H=9400::REMARK \t\t\t\tH = Height of rocket
+510 V=500: :REMARK \t\t\t\tV = Rate the rocket is falling
 520 F=900:IF L9=1 THEN F=658
-530 :REM \t\t\t\t\tF = Amount of fuel on board
-540 GOSUB 800:RETURN::REM \t\t\tGo to print out sub-routine
+530 :REMARK \t\t\t\t\tF = Amount of fuel on board
+540 GOSUB 800:RETURN::REMARK \t\t\tGo to print out sub-routine
 550 PRINT E1$E$"H"Q$
 560 PRINT B1$G$:PRINT F$
 570 DEF USR0=VARPTR(U0(0)):J=USR0(0)

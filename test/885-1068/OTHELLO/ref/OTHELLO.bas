@@ -1,4 +1,4 @@
-10 :REM \t\tOTHELLO.BAS\tBy: Richard Musgrave \n\t\t\t\t    5101 N. Elmwood \n\t\t\t\t    Kansas City, MO  64119
+10 :REMARK \t\tOTHELLO.BAS\tBy: Richard Musgrave \n\t\t\t\t    5101 N. Elmwood \n\t\t\t\t    Kansas City, MO  64119
 20 CLEAR 2000:WIDTH 255
 30 E$=CHR$(27):E1$=E$+"E":P$=E$+"p":Q$=E$+"q":F$=E$+"F":G$=E$+"G"
 40 Y$=E$+"Y":X5$=E$+"x5":Y5$=E$+"y5":K$=E$+"K":L$=STRING$(6," ")+"`":

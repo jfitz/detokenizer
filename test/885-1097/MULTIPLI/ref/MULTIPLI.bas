@@ -1,10 +1,10 @@
-10 :REM \t\tMULTIPLI.BAS\t\tVersion 04.23.81
+10 :REMARK \t\tMULTIPLI.BAS\t\tVersion 04.23.81
 20 CLEAR 4000:E$=CHR$(27):F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 30 X1$=E$+"x1":Y1$=E$+"y1":Y5$=E$+"y5"+Q$:X5$=E$+"x5":J$=E$+"J":
 40 CS$=E$+"H"+E$+"E"+P$+Y$+" 0 Math Quiz "+Q$+Y$+"# "
 50 R=0:H=0:W=0
 60 O1=0
-70 D9=10::REM \tDIFFICULTY DETERMINATOR
+70 D9=10::REMARK \tDIFFICULTY DETERMINATOR
 80 PRINT CS$Y$"#(I (the computer) am going to give you some MATH problems..."
 90 PRINT Y$"%(If you do well enough on them, you'll get a reward."
 100 PRINT Y$"'(If you don't do so well, we'll practice some more!!!"

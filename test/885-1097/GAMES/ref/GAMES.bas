@@ -1,4 +1,4 @@
-10 :REM \tGAMES.BAS
+10 :REMARK \tGAMES.BAS
 20 E$=CHR$(27):Y$=E$+"Y":X5$=E$+"x5"
 30 PRINT E$"H"E$"E"X5$E$"F"Y$"#8faaaaaaaaaaaaaaaaaaaac"Y$"$8`fac fac fcfc fac fac`"
 40 PRINTY$"%8`` c vat ```` va  eac`"Y$"'8`"Y$"(8`"Y$")8`"Y$"*8`"

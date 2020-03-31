@@ -1,4 +1,4 @@
-10 :REM \t\tNUMBER.BAS\tVersion 04.22.81
+10 :REMARK \t\tNUMBER.BAS\tVersion 04.22.81
 20 E$=CHR$(27):P$=E$+"p":Q$=E$+"q":Y$=E$+"Y":Y5$=E$+"y5":X5$=E$+"x5"
 30 CS$=E$+"E"+P$+Y$+" 0 Guess a Number "+Q$+Y$+"# "
 40 Q=0:PRINT CS$Y$"#(I am thinking of a number between 1 and 1000."

@@ -1,5 +1,5 @@
-10 :REM \t\tPLANE.BAS
-20 :REM \t\tBy: John L. Eggert \n\t\t    Eggert Engineering \n\t\t    95 Adams Drive \n\t\t    Stow, Massachusetts 01775
+10 :REMARK \t\tPLANE.BAS
+20 :REMARK \t\tBy: John L. Eggert \n\t\t    Eggert Engineering \n\t\t    95 Adams Drive \n\t\t    Stow, Massachusetts 01775
 30 E$=CHR$(27):E1$=E$+"E":F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":
 40 Y$=E$+"Y":X5$=E$+"x5":Y5$=E$+"y5":K$=E$+"K":T$=" ### "
 50 WIDTH 255:PRINT E$"x6"X5$;
@@ -35,7 +35,7 @@
 350 X=31:Y=5:N=5:M=21:GOSUB 480:Z=A+3:IF Z<1 THEN Z=1
 360 GOSUB 370:RETURN
 370 IF Z>M THEN Z=M
-380 Z=M-Z:L=(Z [FC] 3)+1:Y1=Y+Z/3:X1=X
+380 Z=M-Z:L=(Z \ 3)+1:Y1=Y+Z/3:X1=X
 390 PRINT Y$+CHR$(Y1+33)+CHR$(X1+32)+F$;
 400 FOR I=1 TO N:ON L GOTO 410,430,450
 410 IF N=5 AND I=3 THEN PRINT P$" "Q$;:GOTO 470
@@ -96,7 +96,7 @@
 960 FOR I=1 TO 2*T1
 970 DEF USR0=VARPTR(U0(0))
 980 K=USR0(0)
-990 :REM 
+990 :REMARK 
 1000 IF K=27 THEN 970
 1010 IF K=3 THEN END
 1020 IF K=65 THEN A=A+1
@@ -160,7 +160,7 @@
 1600 PRINT Y$"  "P$;:PRINT Y$"):";
 1610 FOR I=1 TO 20*T1:NEXT I
 1620 PRINT "NOW YOU DID IT!"Q$
-1630 :REM 
+1630 :REMARK 
 1640 PRINT Y5$:GOSUB 2550:END
 1650 PRINT E1$;
 1660 FOR I=1 TO 82*T1:NEXT I
@@ -200,7 +200,7 @@
 2000 PRINT Y$CHR$(34)"N";
 2010 PRINT "  NICE LANDING           "Y$"#RHave a nice day!":GOTO 850
 2020 I1=0:C3=10:GOSUB 690:GOTO 850
-2030 PRINT F$;::REM \t\t\tPrint Display
+2030 PRINT F$;::REMARK \t\t\tPrint Display
 2040 PRINT "faaaaaaaaasaasaaaaaaasaaaaaaaaaaaaaaaaaaaaaaasaaaaaaaaaaaaaaaaaaaaaaaaac"
 2050 PRINT "` ALTITUDE`  ` CLIMB `    faaaaaaaaaaaaac    vaaaa COMMUNICATIONS aaaaat"
 2060 PRINT "` 5000    `  ` 25    `    `   HEADING   `    `                         `"

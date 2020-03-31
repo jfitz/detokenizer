@@ -1,9 +1,9 @@
-10 :REM  OLDROUTE.BAS\tNAVPROGseven Route Retrieval Program        08-Jan-81
-20 :REM 
-30 :REM  Developed by\tAlan Bose   (AOPA 642188)
-40 :REM \t\t\tVice President, Taildragger Flyers
-50 :REM \t\t\tRoss Field, Benton Harbor, MI
-60 :REM 
+10 :REMARK  OLDROUTE.BAS\tNAVPROGseven Route Retrieval Program        08-Jan-81
+20 :REMARK 
+30 :REMARK  Developed by\tAlan Bose   (AOPA 642188)
+40 :REMARK \t\t\tVice President, Taildragger Flyers
+50 :REMARK \t\t\tRoss Field, Benton Harbor, MI
+60 :REMARK 
 70 CLEAR 3000:WIDTH 255:ON ERROR GOTO 790
 80 BL$=CHR$(7):E$=CHR$(27):ER$=E$+"E":PG$=E$+"p":QG$=E$+"q":Y$=E$+"Y": \n   L$=E$+"l":J$=E$+"j":K$=E$+"k":J1$=E$+"J"
 90 DEF FN C$(C1,C2)=Y$+CHR$(C1+31)+CHR$(C2+31)
@@ -12,17 +12,17 @@
 120 PRINT PG$;ER$
 130 PRINT TAB(40-(LEN(HD$)/2));HD$;TAB(79);QG$
 140 PRINT:PRINT"Routes on file: ";
-150 :REM 
+150 :REMARK 
 160 OPEN"I",1,"SY1:ROUTINGS.DAT"
 170 INPUT #1,M
 180 DIM RT$(M+1)
 190 FOR J=1 TO M:LINE INPUT #1,RT$(J)
 200 NEXT J:CLOSE
 210 FOR J=1 TO M
-220 CO=((JMOD16)*20)+1:RO=(J [FC] 16)+5
+220 CO=((JMOD16)*20)+1:RO=(J \ 16)+5
 230 PRINT FNC$(RO,CO);J;FNC$(RO,CO+5);"-  ";LEFT$(RT$(J),3);" to ";RIGHT$(RT$(J),3)
 240 NEXT J
-250 :REM 
+250 :REMARK 
 260 PRINT FNC$(22,1);J1$;"Enter selection  <MENU>  ";J$;STRING$(2,95)
 270 PRINT:PRINT"Enter `D' for delete mode    Enter `P' for printout";:PRINT K$;
 280 LINE INPUT X$:IF X$="" THEN CLOSE:LOAD"MENU",R
@@ -35,7 +35,7 @@
 350 F$="SY1:FLIGHT.SEQ"
 360 GOSUB730
 370 PRINT ER$;"Standby one...":LOAD"NAVPROG7",R
-380 :REM 
+380 :REMARK 
 390 OPEN"O",2,"LP:"
 400 PRINT#2,"Air routes currently on file";TAB(60);D1$:PRINT#2,
 410 FOR I=1 TO M
@@ -62,7 +62,7 @@
 620 NEXT J
 625 ERASE LI$,R1$,R1,R2$,R2
 630 CLOSE#2:GOTO260
-640 :REM 
+640 :REMARK 
 650 OPEN "I",1,F$
 660 FOR J=1 TO 10
 670 LINE INPUT#1,I$(J)
@@ -70,20 +70,20 @@
 690 N=J
 700 NEXT J:CLOSE#1
 710 RETURN
-720 :REM 
+720 :REMARK 
 730 OPEN"O",1,F$
 740 FOR J=1 TO N
 750 PRINT#1,I$(J)
 760 PRINT #1,REF(J)
 770 NEXT J:CLOSE#1
 780 RETURN
-790 :REM error trap
+790 :REMARK error trap
 800 IF ERR=53 AND ERL=160 THEN PRINT"None":PRINT: \n    PRINT"Hit <RETURN> to continue...";:X$=INPUT$(1):PRINT ER$:LOAD"MENU",R
 810 IF ERR=63 AND ERL=670 THEN N=J-1:J=11:RESUME 700
 820 IF ERR=53 AND ERL=490 THEN RESUME 630
 830 IF ERR=53 AND ERL=900 THEN RESUME 910
 840 ON ERROR GOTO 0
-850 :REM delete
+850 :REMARK delete
 860 PRINT FNC$(22,1);J1$;"Delete which route?  <EXIT>  ";J$; \n     STRING$(2,95);K$;
 870 LINE INPUT X$:IF X$="" THEN 260
 880 X=VAL(X$):IF X>M OR X<=0 THEN PRINT BL$:GOTO860

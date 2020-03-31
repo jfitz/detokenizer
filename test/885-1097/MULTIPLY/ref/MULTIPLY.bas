@@ -1,4 +1,4 @@
-10 :REM \t\tMULTIPLY.BAS\t\tVersion 04.22.81
+10 :REMARK \t\tMULTIPLY.BAS\t\tVersion 04.22.81
 20 CLEAR 4000:WIDTH 255:ON ERROR GOTO 510
 30 E$=CHR$(27):E1$=E$+"E":F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 40 X1$=E$+"x1":Y1$=E$+"y1":Y5$=E$+"y5"+Q$:X5$=E$+"x5":J$=E$+"J":
@@ -6,8 +6,8 @@
 60 PRINT CS$
 70 R=0:H=0:W=0:W1=0
 80 O1=0
-90 D9=10::REM \t\tDIFFICULTY DETERMINATOR
-100 V1=10::REM \t\tNumber questions
+90 D9=10::REMARK \t\tDIFFICULTY DETERMINATOR
+100 V1=10::REMARK \t\tNumber questions
 110 PRINT Y$"&0I (the computer) am going to give you some math problems..."
 120 PRINT Y$"*MGood Luck!!!"Y$"00Here we go..."
 130 GOSUB 450:PRINT CS$
@@ -47,6 +47,6 @@
 470 PRINT Y5$;:A$=INPUT$(1):PRINT X5$Y1$;
 480 IF ASC(A$)>96 AND ASC(A$)<123 THEN A$=CHR$(ASC(A$)-32)
 490 RETURN
-500 :REM \t\tERROR MESSEGES
-510 :REM 
+500 :REMARK \t\tERROR MESSEGES
+510 :REMARK 
 520 PRINT Y$"70ERROR!!!!\a\a\a\a   #"ERR" in \a\aline #"ERL:STOP

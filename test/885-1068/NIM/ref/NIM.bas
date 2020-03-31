@@ -1,4 +1,4 @@
-10 :REM \t\tNIM.BAS\t\tBY: Richard Musgrave \n\t\t\t\t    5101 N. Elmwood \n\t\t\t\t    Kansas City, MO 64119
+10 :REMARK \t\tNIM.BAS\t\tBY: Richard Musgrave \n\t\t\t\t    5101 N. Elmwood \n\t\t\t\t    Kansas City, MO 64119
 20 CLEAR 2000
 30 DIM R0(3),R1(3),M$(6),P0(15),P1(15)
 40 GOTO 180

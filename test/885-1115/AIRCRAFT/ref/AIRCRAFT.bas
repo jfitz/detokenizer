@@ -1,9 +1,9 @@
-10 :REM  AIRCRAFT.BAS\tNAVPROGseven Aircraft Performance Entry    28-Dec-81
-20 :REM 
-30 :REM  Developed by\tAlan Bose   (AOPA 642188)
-40 :REM \t\t\tVice President, Taildragger Flyers
-50 :REM \t\t\tRoss Field, Benton Harbor, MI
-60 :REM 
+10 :REMARK  AIRCRAFT.BAS\tNAVPROGseven Aircraft Performance Entry    28-Dec-81
+20 :REMARK 
+30 :REMARK  Developed by\tAlan Bose   (AOPA 642188)
+40 :REMARK \t\t\tVice President, Taildragger Flyers
+50 :REMARK \t\t\tRoss Field, Benton Harbor, MI
+60 :REMARK 
 70 CLEAR 3000:ON ERROR GOTO 990:WIDTH 255
 80 BL$=CHR$(7):E$=CHR$(27):ER$=E$+"E":PG$=E$+"p":QG$=E$+"q":Y$=E$+"Y": \n   L$=E$+"l":J$=E$+"j":K$=E$+"k":J1$=E$+"J"
 90 DEF FN C$(C1,C2)=Y$+CHR$(C1+31)+CHR$(C2+31)
@@ -96,7 +96,7 @@
 960 OPEN"I",1,"SY1:FLIGHT.SEQ":CLOSE
 970 PRINT ER$;"Standby one...":LOAD"NAVPROG7",R
 980 LOAD"MENU",R
-990 :REM error trap
+990 :REMARK error trap
 1000 IF ERR=53 AND ERL=160 THEN RESUME 300
 1010 IF ERR=53 AND ERL=960 THEN RESUME 980
 1020 IF ERR=53 AND ERL=350 THEN RESUME 110

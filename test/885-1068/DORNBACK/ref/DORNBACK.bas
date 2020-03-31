@@ -1,4 +1,4 @@
-10 :REM \t\tCOMPUTER DORNBACK\t\tMay, 1980
+10 :REMARK \t\tCOMPUTER DORNBACK\t\tMay, 1980
 20 CLEAR 2000:WIDTH 255
 30 E$=CHR$(27):E1$=E$+"E":F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 40 K$=E$+"K":X5$=E$+"x5":Y5$=E$+"y5":E25$=E$+"x1"+P$+Y$+"8&"
@@ -28,7 +28,7 @@
 280 PRINT Y$"20place your score.  (Example: ONES goto `A1').   Hit"
 290 PRINT Y$"30RETURN after selecting the position."
 300 PRINT Y$"50Hit the RETURN key to start the game.";:A$=INPUT$(1):PRINT E1$
-310 :REM \t\tRoutine to determine the name of each player
+310 :REMARK \t\tRoutine to determine the name of each player
 320 PRINTY$"##Using FIRST Names ONLY,"
 330 INPUT "Enter the name of the first player ";N1$
 340 INPUT "Enter the name of the second player ";N2$
@@ -70,7 +70,7 @@
 700 GOSUB 720:R1=R:GOSUB 720:R2=R:GOSUB 720:R3=R:GOSUB 720:R4=R
 710 GOSUB 720:R5=R:RETURN
 720 R=RND(1):R=100*R:R=R/10:R=INT(R):IF R=0 OR R>6 THEN 720 :ELSE RETURN
-730 :REM \t\tRoutine to show dice
+730 :REMARK \t\tRoutine to show dice
 740 IF P=2 THEN PRINT Y$"2VRoll #"T"for "N2$:GOTO 760
 750 PRINT Y$"2VRoll #"T"for "N1$
 760 PRINT Y$" L"A1$(R1)Y$"!L"A2$(R1)"  #1"Y$CHR$(34)"L"A3$(R1)
@@ -78,7 +78,7 @@
 780 PRINT Y$"(L"A1$(R3)Y$")L"A2$(R3)"  #3"Y$"*L"A3$(R3)
 790 PRINT Y$",L"A1$(R4)Y$"-L"A2$(R4)"  #4"Y$".L"A3$(R4)
 800 PRINT Y$"0L"A1$(R5)Y$"1L"A2$(R5)"  #5"Y$"2L"A3$(R5)C1$:RETURN
-810 :REM \t\tRoutine to check if scratch is to be posted
+810 :REMARK \t\tRoutine to check if scratch is to be posted
 820 PRINTC1$Y$"4LWhat score would you like"Y$"5Lme to scratch? "Y5$;:LINE INPUT X1$
 830 IF LEFT$(X1$,1)="a" THEN X1$="A"+RIGHT$(X1$,1)
 840 IF LEFT$(X1$,1)="b" THEN X1$="B"+RIGHT$(X1$,1)
@@ -96,7 +96,7 @@
 960 IF X1$="B6" AND B6=0 THEN B6=99:GOSUB 2020:GOTO 1300
 970 IF X1$="B7" AND B7=0 THEN B7=99:GOSUB 2020:GOTO 1300
 980 PRINT Y$"3L\a\a\a\aTRY AGAIN--? ":GOTO 820
-990 :REM \t\tRoutine to select dice to be thrown again
+990 :REMARK \t\tRoutine to select dice to be thrown again
 1000 GOSUB 430:S1$="Y":S2$="Y":S3$="Y":S4$="Y":S5$="Y"
 1010 PRINT E25$" #1     #2     #3     #4     #5    All   None  Done Restore ";
 1020 PRINT Q$Y$"  "
@@ -114,7 +114,7 @@
 1140 IF S$="Q" THEN X3$="N":RETURN
 1150 IF S$="R" THEN 1030
 1160 GOTO 1040
-1170 :REM \t\tROUTINE TO RESTORE SAVED DICE
+1170 :REMARK \t\tROUTINE TO RESTORE SAVED DICE
 1180 IF S1=0 THEN 1200
 1190 R1=S1
 1200 IF S2=0 THEN 1220
@@ -126,7 +126,7 @@
 1260 IF S5=0 THEN 1280
 1270 R5=S5
 1280 S1=0:S2=0:S3=0:S4=0:S5=0:RETURN
-1290 :REM \t\tMainline routine after startup
+1290 :REMARK \t\tMainline routine after startup
 1300 T=1:E=E+1:IF E=27 THEN 2180
 1310 IF E=27 THEN 2180
 1320 GOSUB 700:GOSUB 740:GOSUB 990
@@ -153,7 +153,7 @@
 1530 IF R4=U THEN V=V+U
 1540 IF R5=U THEN V=V+U
 1550 IF V=0 THEN 1420 :ELSE RETURN
-1560 :REM \t\tStart of the B's
+1560 :REMARK \t\tStart of the B's
 1570 IF X1$="1" OR X1$="2" OR X1$="3" OR X1$="6" THEN 1620
 1580 IF X1$="7" AND B7=0 THEN B7=R1+R2+R3+R4+R5:G1=G1+B7:GOTO 1960
 1590 IF X1$="4" AND B4=0 THEN 1780
@@ -174,7 +174,7 @@
 1740 NEXT I:NEXT U
 1750 IF X=2 AND U<>0 THEN B3=25:G1=G1+25:X=0:U=0:U1=0:GOTO 1960
 1760 GOTO 1940
-1770 :REM \t\tCheck for straights
+1770 :REMARK \t\tCheck for straights
 1780 R(1)=R1:R(2)=R2:R(3)=R3:R(4)=R4:R(5)=R5
 1790 FOR I=1 TO 5
 1800 IF R(I)=1 THEN T1=1
@@ -198,21 +198,21 @@
 1980 G3=G1+G2
 1990 GOSUB 2020:GOTO 1300
 2000 T1=0:T2=0:T3=0:T4=0:T5=0:T6=0:I=0:X=0:V=0:U=0:U1=0:RETURN
-2010 :REM \t\tRoutine to show results after posting score
+2010 :REMARK \t\tRoutine to show results after posting score
 2020 GOSUB 430:T=1:IF P<>1 THEN 2110
 2030 PRINT C1$Y$"4LI have posted your score"
-2040 :REM \t\tSAVE PLAYER 1 SCORES
+2040 :REMARK \t\tSAVE PLAYER 1 SCORES
 2050 H1=A1:H2=A2:H3=A3:H4=A4:H5=A5:H6=A6:H7=A7:H8=A8:H9=A9
 2060 I1=B1:I2=B2:I3=B3:I4=B4:I5=B5:I6=B6:I7=B7:J1=G1:J2=G2:J3=G3
 2070 P=2:A1=K1:A2=K2:A3=K3:A4=K4:A5=K5:A6=K6:A7=K7:A8=K8:A9=K9
 2080 B1=L1:B2=L2:B3=L3:B4=L4:B5=L5:B6=L6:B7=L7:G1=M1:G2=M2:G3=M3
 2090 PRINT Y$"6LPress any key to continue"Y5$;:A$=INPUT$(1):PRINT C1$:RETURN
-2100 :REM \t\tROUTINE FOR PLAYER 2
+2100 :REMARK \t\tROUTINE FOR PLAYER 2
 2110 PRINT C1$Y$"5LI have posted your score"
-2120 :REM \t\tSAVE PLAYER 2 SCORES
+2120 :REMARK \t\tSAVE PLAYER 2 SCORES
 2130 K1=A1:K2=A2:K3=A3:K4=A4:K5=A5:K6=A6:K7=A7:K8=A8:K9=A9
 2140 L1=B1:L2=B2:L3=B3:L4=B4:L5=B5:L6=B6:L7=B7:M1=G1:M2=G2:M3=G3:P=1
-2150 :REM \t\tRESTORE PLAYER 1 SCORES
+2150 :REMARK \t\tRESTORE PLAYER 1 SCORES
 2160 A1=H1:A2=H2:A3=H3:A4=H4:A5=H5:A6=H6:A7=H7:A8=H8:A9=H9
 2170 B1=I1:B2=I2:B3=I3:B4=I4:B5=I5:B6=I6:B7=I7:G1=J1:G2=J2:G3=J3:GOTO 2090
 2180 PRINTY$"+V"K$"Your final score "N1$Y$",V"K$"is "J3

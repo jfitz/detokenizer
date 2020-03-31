@@ -1,4 +1,4 @@
-10 :REM \t\tMENU.BAS\tDemo Menu\tVersion 05.26.81
+10 :REMARK \t\tMENU.BAS\tDemo Menu\tVersion 05.26.81
 20 CLEAR 2000:WIDTH 255:F=200:DIM FL$(F):ON ERROR GOTO 250
 30 E$=CHR$(27):E1$=E$+"E":F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q"
 40 A$=E$+"A":B$=E$+"B":D$=E$+"D"

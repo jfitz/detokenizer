@@ -1,9 +1,9 @@
-10 :REM  AIRALPHA.BAS   NAVPROGseven Airport/Facility Sort            29-Dec-81
-20 :REM 
-30 :REM  Developed by\tAlan Bose  (AOPA 642188)
-40 :REM \t\t\tVice President, Taildragger Flyers
-50 :REM \t\t\tRoss Field, Benton Harbor, MI
-60 :REM 
+10 :REMARK  AIRALPHA.BAS   NAVPROGseven Airport/Facility Sort            29-Dec-81
+20 :REMARK 
+30 :REMARK  Developed by\tAlan Bose  (AOPA 642188)
+40 :REMARK \t\t\tVice President, Taildragger Flyers
+50 :REMARK \t\t\tRoss Field, Benton Harbor, MI
+60 :REMARK 
 70 CLEAR 4000:WIDTH 80
 80 BL$=CHR$(7):E$=CHR$(27):ER$=E$+"E":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y": \n   L$=E$+"l":X1$=E$+"x1":J$=E$+"j":K$=E$+"k":J1$=E$+"J"
 90 DEF FN C$(C1,C2)=Y$+CHR$(C1+31)+CHR$(C2+31)
@@ -25,11 +25,11 @@
 250 OPEN "R",2,"SY1:AIRPORTS.RND"
 260 MD=(LOC(2)*5)
 270 DIM ID$(MD+1),ST$(MD+1),REF(MD+1)
-280 :REM build indices for ident, city, state, facilities and location on file
+280 :REMARK build indices for ident, city, state, facilities and location on file
 290 FOR J=1 TO MD
-300 REC=((J-1)MOD5)+1:SS=(J-1) [FC] 5
+300 REC=((J-1)MOD5)+1:SS=(J-1) \ 5
 310 IF [0xFF][AF](2)<>REC THEN GET #2,REC
-320 OPTION #2,SS*50 AS DU$,5 AS ID$,2 AS FAC$,4 AS DU$,20 AS A$,2 AS D1$, \n    4 AS M1$,2 AS D$,4 AS M$
+320 FIELD #2,SS*50 AS DU$,5 AS ID$,2 AS FAC$,4 AS DU$,20 AS A$,2 AS D1$, \n    4 AS M1$,2 AS D$,4 AS M$
 330 ID$(J)=ID$
 340 IF ASC(ID$)=0 THEN ID$(J)="     "
 350 IF ID$(J)="" THEN ID$(J)="     "
@@ -37,7 +37,7 @@
 370 I2=INSTR(A$,", ")+2
 380 IF I2=2 THEN I2=INSTR(A$,",")+1
 390 X$=MID$(A$,I2,2)
-400 :REM 
+400 :REMARK 
 410 D6=[0xFF][AA](D1$):M6=CVI(M1$):D5=[0xFF][AA](D$):M5=CVI(M$)
 420 M1=M6/60:P2=D6+M1:M=M5/60:P1=D5+M
 430 IF J=1 THEN N=P2:SO=P2:E=P1:W=P1
@@ -45,7 +45,7 @@
 450 IF P2<SO AND P2<>0 THEN SO=P2:SI$=ID$:S$=A$
 460 IF P1<E AND P2<>0 THEN E=P1:EI$=ID$:E$=A$
 470 IF P1>W THEN W=P1:WI$=ID$:W$=A$
-480 :REM 
+480 :REMARK 
 490 ON C GOTO 530,510,520,500,550
 500 ST=1.78:X$=X$+LEFT$(FAC$,2):GOTO 540
 510 ST=1.35:GOTO 540
@@ -72,7 +72,7 @@
 720 J1=J1+1:PRINT" ";
 730 IF J1>K1 THEN 590
 740 GOTO 620
-750 :REM  Printout Airport/Facility Listing
+750 :REMARK  Printout Airport/Facility Listing
 760 PRINT ER$:PRINT"Output:  Enter P for printer, S for screen  ";
 770 X$=INPUT$(1):GOSUB1240:PRINT ER$:IF X$="P" THEN LS$="LP:":GOTO 800
 780 IF X$="S" THEN LS$="TT:":GOTO 800
@@ -89,9 +89,9 @@
 890 PRINT #1,TAB(65);D5$:PRINT #1,
 900 FOR J=1 TO MD
 910 IF ID$(J)="     " THEN S=S+1:GOTO 1150
-920 REC=(REF(J)MOD5)+1:SS=REF(J) [FC] 5
+920 REC=(REF(J)MOD5)+1:SS=REF(J) \ 5
 930 IF LREC<>REC THEN LREC=REC:GET#2,REC
-940 OPTION #2,SS*50 AS DU$,5 AS ID$,2 AS FAC$,4 AS FR$,20 AS NM$,2 AS D1$, \n    4 AS M1$,2 AS D$,4 AS M$,4 AS V$,1 AS V1$,2 AS EL$
+940 FIELD #2,SS*50 AS DU$,5 AS ID$,2 AS FAC$,4 AS FR$,20 AS NM$,2 AS D1$, \n    4 AS M1$,2 AS D$,4 AS M$,4 AS V$,1 AS V1$,2 AS EL$
 950 IF C=5 AND J=1 THEN 980
 960 IF C=5 OR LEFT$(ST$(J-1),2)=LEFT$(ST$(J),2) THEN 1000
 970 PRINT #1,CHR$(10);CHR$(10);TAB(30);"****** ";LEFT$(ST$(J),2); \n    " ******";CHR$(10)
@@ -121,7 +121,7 @@
 1210 CLOSE
 1220 IF X$="S" THEN PRINT FNC$(25,25);L$; \n     "Hit <RETURN> to continue...";:X$=INPUT$(1)
 1230 GOTO 70
-1240 :REM map lc
+1240 :REMARK map lc
 1250 FOR L=1 TO LEN(X$):U$=MID$(X$,L,1)
 1260 IF ASC(U$)>96 AND ASC(U$)<123 THEN MID$(X$,L,1)=CHR$(ASC(U$)-32)
 1270 NEXT L:RETURN

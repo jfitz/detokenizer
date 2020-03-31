@@ -1,4 +1,4 @@
-10 :REM \t\tSINK.BAS \n\t\tBy: William C. Zurney
+10 :REMARK \t\tSINK.BAS \n\t\tBy: William C. Zurney
 20 CLEAR 500
 30 DEFINT A-Z
 40 E$=CHR$(27):E1$=E$+"E":Y$=E$+"Y"

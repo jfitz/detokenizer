@@ -1,5 +1,5 @@
-10 :REM \t\tTICTAC.BAS \n\t\tBy: Daniel Schlichtig \n\t\t    18832 W. Cabral Street \n\t\t    Canyon Country, California 91351
-20 :REM \t\tAdapted to MBASIC by HUG 5/5/80
+10 :REMARK \t\tTICTAC.BAS \n\t\tBy: Daniel Schlichtig \n\t\t    18832 W. Cabral Street \n\t\t    Canyon Country, California 91351
+20 :REMARK \t\tAdapted to MBASIC by HUG 5/5/80
 30 CLEAR 1000:DIM A(9),B(9):WIDTH 255
 40 E$=CHR$(27):E1$=E$+"E":F$=E$+"F":G$=E$+"G":P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 50 X5$=E$+"x5":Y5$=E$+"y5":J$=E$+"J":K$=E$+"K"

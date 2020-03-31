@@ -1,4 +1,4 @@
-10 :REM \t\tWORD.BAS\t\tVersion 04.23.81
+10 :REMARK \t\tWORD.BAS\t\tVersion 04.23.81
 20 CLEAR 4000:ON ERROR GOTO 390
 30 E$=CHR$(27):P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 40 X1$=E$+"x1":Y1$=E$+"y1":Y5$=E$+"y5"+Q$:X5$=E$+"x5":J$=E$+"J":

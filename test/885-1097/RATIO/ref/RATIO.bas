@@ -1,4 +1,4 @@
-10 :REM \t\tRATIO.BAS\t\tVersion 04.23.81
+10 :REMARK \t\tRATIO.BAS\t\tVersion 04.23.81
 20 CLEAR 4000:E$=CHR$(27):P$=E$+"p":Q$=E$+"q":Y$=E$+"Y"
 30 X1$=E$+"x1":Y1$=E$+"y1":Y5$=E$+"y5"+Q$:X5$=E$+"x5":J$=E$+"J":
 40 CS$=E$+"H"+E$+"E"+P$+Y$+" 9 Ratio Quiz "+Q$+Y$+"# "
